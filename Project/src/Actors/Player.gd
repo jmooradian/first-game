@@ -2,11 +2,21 @@ extends Actor
 
 export var stomp_impulse: = 1000.0
 
+onready var player = get_tree().get_root().get_child(0).get_node("Player")
+
+var respawn_loc: = Vector2(240, 950)
+var lives_left: = 3
+
 func _on_EnemyDetector_area_entered(area):
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body):
-	queue_free()
+	lives_left -= 1
+	if lives_left > 0:
+		player.set_position(respawn_loc)
+	else:
+		 queue_free()
+	
 
 
 func _physics_process(delta):

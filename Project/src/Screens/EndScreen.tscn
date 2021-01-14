@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Screens/EndScreen.gd" type="Script" id=3]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=7]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -273.0
+margin_top = -196.5
+margin_right = 273.0
+margin_bottom = 196.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="Menu" instance=ExtResource( 4 )]
+text = "Play Again"
+next_scene_path = "res://src/Screens/MainScreen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource( 5 )]
+
+[node name="Title" parent="." instance=ExtResource( 2 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -191.5
+margin_top = -427.695
+margin_right = 191.5
+margin_bottom = -370.695
+text = "That's All Folks!"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -315.446
+margin_right = 140.0
+margin_bottom = -250.446
+text = "Your Final Score is %s
+You Died Times  %s"
+align = 1

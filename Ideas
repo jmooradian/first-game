@@ -1,3 +1,6 @@
+*-Idea
+
+
 Add ability to shoot enemies. (Still be able to stomp them)
 
 Add health system
@@ -8,6 +11,8 @@ Add enemy types:
   Speed
   Tank
   Shooters
+  Jumpers
+  Crazy Man (switched directions without collisions randomly); Have timer after colision to prevent them getting stuck against a wall*
   .
   .
   .

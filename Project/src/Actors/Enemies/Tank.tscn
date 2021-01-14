@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/enemy.png" type="Texture" id=1]
-[ext_resource path="res://src/Actors/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://src/Actors/Enemies/Tank.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44, 35 )
@@ -9,21 +9,26 @@ extents = Vector2( 44, 35 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 51, 11 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Tank Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2147483657
-script = ExtResource( 2 )
+script = ExtResource( 1 )
+speed = Vector2( 175, 1400 )
 
 [node name="enemy" type="Sprite" parent="."]
-position = Vector2( 0, -48 )
-texture = ExtResource( 1 )
+modulate = Color( 0, 0.952941, 1, 1 )
+position = Vector2( 0, -59 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -35 )
+position = Vector2( 0, -44.1771 )
+scale = Vector2( 1.25, 1.25 )
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-position = Vector2( 1, 1 )
+position = Vector2( 5.96046e-08, 5.96046e-08 )
+scale = Vector2( 1.25, 1.25 )
 rect = Rect2( -50, -60, 100, 60 )
 process_parent = true
 physics_process_parent = true
@@ -34,6 +39,7 @@ position = Vector2( 0, -69 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StopDetector"]
-position = Vector2( 0, -11 )
+position = Vector2( 0, -32.5382 )
+scale = Vector2( 1.25, 1.25 )
 shape = SubResource( 2 )
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

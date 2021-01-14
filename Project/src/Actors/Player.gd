@@ -4,7 +4,7 @@ export var stomp_impulse: = 1000.0
 
 onready var player = get_tree().get_root().get_child(0).get_node("Player")
 
-var respawn_loc: = Vector2(240, 950)
+var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
 func _on_EnemyDetector_area_entered(area):

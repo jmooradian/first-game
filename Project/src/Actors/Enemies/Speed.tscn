@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/Actors/Enemies/Speed.gd" type="Script" id=1]
+[ext_resource path="res://assets/enemy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 44, 35 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 51, 11 )
+
+[node name="Speed Enemy" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 2147483657
+script = ExtResource( 1 )
+speed = Vector2( 500, 1400 )
+
+[node name="enemy" type="Sprite" parent="."]
+modulate = Color( 0.615686, 0.227451, 0.592157, 1 )
+position = Vector2( 5.96046e-08, -35 )
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -26.5365 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 5.96046e-08, -0.125 )
+scale = Vector2( 0.75, 0.75 )
+rect = Rect2( -50, -60, 100, 60 )
+process_parent = true
+physics_process_parent = true
+
+[node name="StopDetector" type="Area2D" parent="."]
+modulate = Color( 0, 0.109804, 0.403922, 1 )
+position = Vector2( 0, -50.1012 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StopDetector"]
+position = Vector2( 0, -11 )
+scale = Vector2( 0.75, 0.75 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

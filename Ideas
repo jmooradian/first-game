@@ -11,8 +11,14 @@ Add enemy types:
   .
   .
   .
-  
+
 Add upgrade system (coins collected are used to purchase upgrades)
+  Possible upgrades:
+    higher max Health
+    faster Speed
+    higher jump
+    bullets do more damage
+    can hold more bullets
 
 Collectibles:
   Coins

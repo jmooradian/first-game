@@ -2,6 +2,8 @@ Add ability to shoot enemies. (Still be able to stomp them)
 
 Add health system
 
+Lives
+
 Add enemy types:
   Speed
   Tank
@@ -17,3 +19,8 @@ Collectibles:
   Bullets/Projectiles
   Health
   Armor?
+
+Menus:
+  Main
+  Upgrade Screen
+  Game Over

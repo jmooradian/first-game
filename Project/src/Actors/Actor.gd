@@ -5,4 +5,6 @@ const FLOOR_NORMAL: = Vector2.UP
 
 export var speed: = Vector2(300.0, 1400.0)
 export var gravity: = 4000.0
+export var health: = 100.0
+
 var _velocity: = Vector2.ZERO

@@ -27,6 +27,7 @@ Add upgrade system (coins collected are used to purchase upgrades)
     higher jump
     bullets do more damage
     can hold more bullets
+    Dash - allowing the player to ram enemies.
 
 Collectibles:
   Coins
@@ -38,3 +39,12 @@ Menus:
   Main
   Upgrade Screen
   Game Over
+
+Game Modes:
+  When to upgrade:
+    After each level
+    After you have lost all lives, in other words go as far as you can and then come back upgrade and see if you can do better.
+  Hardcore
+    One life?
+    Fewer collectibles?
+  

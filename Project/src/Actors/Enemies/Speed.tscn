@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Enemies/Speed.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44, 35 )
@@ -42,4 +43,10 @@ collision_layer = 2
 position = Vector2( 0, -11 )
 scale = Vector2( 0.75, 0.75 )
 shape = SubResource( 2 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 3 )]
+margin_left = -58.3539
+margin_top = -97.108
+margin_right = -58.3539
+margin_bottom = -97.108
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

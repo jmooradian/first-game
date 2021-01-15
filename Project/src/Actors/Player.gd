@@ -1,8 +1,8 @@
 extends Actor
 
-export var stomp_impulse: = 1000.0
+onready var health_bar = $HealthBar
 
-onready var player = get_tree().get_root().get_child(0).get_node("Player")
+export var stomp_impulse: = 1000.0
 
 var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
@@ -16,7 +16,13 @@ func _on_EnemyDetector_body_entered(body):
 	#	player.set_position(respawn_loc)
 	#else:
 	#	 queue_free()
-	die()
+	#die()
+	if body.get_name() == "Tank Enemy":
+		damage(50)
+	elif body.get_name() == "Speed Enemy":
+		damage (5)
+	elif body.get_name() == "Enemy":
+		damage (10)
 	
 
 
@@ -56,3 +62,9 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 func die() -> void:
 	PlayerData.deaths += 1
 	queue_free()
+
+func _on_Player_health_updated(health):
+	health_bar._on_health_updated(health, 0)
+
+func _on_Player_killed():
+	die()

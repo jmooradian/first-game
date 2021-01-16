@@ -15,8 +15,9 @@ collision_layer = 2
 collision_mask = 2147483657
 script = ExtResource( 1 )
 speed = Vector2( 500, 1400 )
+max_health = 75.0
 
-[node name="enemy" type="Sprite" parent="."]
+[node name="speed enemy" type="Sprite" parent="."]
 modulate = Color( 0.615686, 0.227451, 0.592157, 1 )
 position = Vector2( 5.96046e-08, -35 )
 scale = Vector2( 0.75, 0.75 )
@@ -49,4 +50,6 @@ margin_left = -58.3539
 margin_top = -97.108
 margin_right = -58.3539
 margin_bottom = -97.108
+[connection signal="health_updated" from="." to="." method="_on_Speed_Enemy_health_updated"]
+[connection signal="killed" from="." to="." method="_on_Speed_Enemy_killed"]
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

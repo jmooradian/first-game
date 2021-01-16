@@ -1,16 +1,19 @@
-extends "res://src/Actors/Actor.gd"
+extends Actor
 
-
+onready var health_bar = $HealthBar
 
 func _ready():
+	health_bar.visible = false
 	set_physics_process(false)
 	_velocity.x = -speed.x
 
 func _on_StopDetector_body_entered(body):
 	if body.global_position.y > get_node("StopDetector").global_position.y:
 		return 
+	health_bar.visible = true
+	damage(75)
 	#get_node("CollisionShape2D").disabled = true
-	die()
+	#die()
 
 
 func _physics_process(delta):
@@ -21,3 +24,11 @@ func _physics_process(delta):
 
 func die() -> void:
 	queue_free()
+
+
+func _on_Enemy_health_updated(health):
+	health_bar._on_health_updated(health, 0)
+
+
+func _on_Enemy_killed():
+	die()

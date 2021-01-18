@@ -17,11 +17,11 @@ func _on_EnemyDetector_body_entered(body):
 	#else:
 	#	 queue_free()
 	#die()
-	if body.get_name() == "Tank Enemy":
+	if body.get_child(0).get_name() == "tank enemy":
 		damage(50)
-	elif body.get_name() == "Speed Enemy":
+	elif body.get_child(0).get_name() == "speed enemy":
 		damage (5)
-	elif body.get_name() == "Enemy":
+	elif body.get_child(0).get_name() == "enemy":
 		damage (10)
 	
 

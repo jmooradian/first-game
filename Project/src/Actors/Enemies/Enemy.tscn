@@ -16,6 +16,7 @@ collision_mask = 2147483657
 script = ExtResource( 2 )
 
 [node name="enemy" type="Sprite" parent="."]
+modulate = Color( 1, 0.494118, 0, 1 )
 position = Vector2( 0, -48 )
 texture = ExtResource( 1 )
 

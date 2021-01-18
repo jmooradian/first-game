@@ -18,7 +18,7 @@ speed = Vector2( 500, 1400 )
 max_health = 75.0
 
 [node name="speed enemy" type="Sprite" parent="."]
-modulate = Color( 0.615686, 0.227451, 0.592157, 1 )
+modulate = Color( 1, 0.352941, 0.960784, 1 )
 position = Vector2( 5.96046e-08, -35 )
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 2 )

@@ -1,7 +1,7 @@
 extends Node
 
 signal gold_updated
-signal player_Died
+signal player_died
 
 var gold: = 0 setget set_gold
 var deaths: = 0 setget set_deaths
@@ -16,4 +16,4 @@ func set_gold(value: int) -> void:
 
 func set_deaths(value: int) -> void:
 	deaths = value
-	emit_signal("player_Died")
+	emit_signal("player_died")

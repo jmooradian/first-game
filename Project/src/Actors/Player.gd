@@ -20,10 +20,17 @@ func _on_EnemyDetector_body_entered(body):
 	if body.get_child(0).get_name() == "tank enemy":
 		damage(50)
 	elif body.get_child(0).get_name() == "speed enemy":
-		damage (5)
+		damage(5)
 	elif body.get_child(0).get_name() == "enemy":
-		damage (10)
-	
+		damage(10)
+	elif body.get_child(0).get_name() == "jump enemy":
+		damage(10)
+
+func _on_JumperDetector_body_entered(body):
+	if body.get_child(0).get_name() == "jump enemy":
+		damage(50)
+	else:
+		damage(20)
 
 
 func _physics_process(delta):

@@ -44,6 +44,18 @@ collision_mask = 2
 position = Vector2( 0, -19.8173 )
 shape = SubResource( 2 )
 
+[node name="JumperDetector" type="Area2D" parent="."]
+modulate = Color( 0.12549, 1, 0, 1 )
+position = Vector2( -0.561249, -66.5059 )
+monitorable = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumperDetector"]
+position = Vector2( 0, -19.8173 )
+scale = Vector2( 0.7, 0.5 )
+shape = SubResource( 2 )
+
 [node name="HealthBar" parent="." instance=ExtResource( 3 )]
 margin_left = -59.2449
 margin_top = -121.608
@@ -53,3 +65,6 @@ margin_bottom = -121.608
 [connection signal="killed" from="." to="." method="_on_Player_killed"]
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
+[connection signal="area_entered" from="JumperDetector" to="." method="_on_EnemyDetector_area_entered"]
+[connection signal="body_entered" from="JumperDetector" to="." method="_on_JumperDetector_body_entered"]
+[connection signal="body_entered" from="JumperDetector" to="." method="_on_EnemyDetector_body_entered"]

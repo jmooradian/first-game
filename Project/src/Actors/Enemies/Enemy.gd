@@ -32,3 +32,4 @@ func _on_Enemy_health_updated(health):
 
 func _on_Enemy_killed():
 	die()
+

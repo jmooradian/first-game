@@ -2,6 +2,9 @@ extends Actor
 
 export var stomp_impulse: = 1000.0
 
+onready var larrow = $leftarrow
+onready var rarrow = $rightarrow
+
 var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
@@ -38,6 +41,16 @@ func _on_JumperDetector_body_entered(body):
 func _physics_process(delta):
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
+	if direction.x == 1.0:
+		rarrow.visible = true
+		larrow.visible = false
+	elif direction.x == -1.0:
+		rarrow.visible = false
+		larrow.visible = true
+	else:
+		rarrow.visible = false
+		larrow.visible = false
+		
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 

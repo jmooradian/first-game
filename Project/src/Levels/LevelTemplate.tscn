@@ -5,13 +5,17 @@
 [ext_resource path="res://src/Actors/Enemies/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
 [ext_resource path="res://src/Actors/Enemies/Speed.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Actors/Enemies/Tank.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Actors/Enemies/Jumper.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Actors/Enemies/Crazy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=7]
 
 [node name="LevelTemplate" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [ 4880.0 ]
 }
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="UserInterface" parent="UserInterface" instance=ExtResource( 7 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -100
@@ -40,16 +44,13 @@ position = Vector2( 239, 954 )
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 4880
 
-[node name="Tank Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1411.05, 938.898 )
-
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1017.05, 932.898 )
+position = Vector2( 912.246, 925.106 )
 
 [node name="Speed Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1241.05, 926.898 )
+position = Vector2( 1056.88, 925.106 )
 
-[node name="Jump Enemy" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1132.56, 926.789 )
+[node name="Crazy Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1295.69, 928.47 )
 
 [editable path="Player"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/enemy.png" type="Texture" id=1]
-[ext_resource path="res://src/Actors/Enemies/Jumper.gd" type="Script" id=2]
+[ext_resource path="res://src/Actors/Enemies/Crazy.gd" type="Script" id=2]
 [ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -10,13 +10,13 @@ extents = Vector2( 44, 35 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 51, 11 )
 
-[node name="Jump Enemy" type="KinematicBody2D"]
+[node name="Crazy Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2147483657
 script = ExtResource( 2 )
 
-[node name="jump enemy" type="Sprite" parent="."]
-modulate = Color( 0.101961, 1, 0, 1 )
+[node name="crazy enemy" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -48 )
 texture = ExtResource( 1 )
 
@@ -45,8 +45,14 @@ margin_top = -121.113
 margin_right = -58.7656
 margin_bottom = -121.113
 
-[node name="JumpTimer" type="Timer" parent="."]
+[node name="CrazyTimer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
+
+[node name="WallTimer" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="health_updated" from="." to="." method="_on_Enemy_health_updated"]
+[connection signal="killed" from="." to="." method="_on_Enemy_killed"]
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]
-[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]
+[connection signal="timeout" from="CrazyTimer" to="." method="_on_CrazyTimer_timeout"]
+[connection signal="timeout" from="WallTimer" to="." method="_on_WallTimer_timeout"]

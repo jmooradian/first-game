@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=4]
 [ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=6]
+[ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=7]
 
 [node name="UserInterface" type="Control"]
 pause_mode = 2
@@ -25,6 +26,25 @@ margin_top = 28.9141
 margin_right = -134.413
 margin_bottom = 59.9141
 text = "Gold: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" parent="." instance=ExtResource( 7 )]
+
+[node name="HealthUnder" parent="HealthBar" index="0"]
+margin_left = 28.5732
+margin_top = 25.3984
+margin_right = 418.573
+margin_bottom = 79.3984
+rect_scale = Vector2( 1, 1 )
+
+[node name="HealthOver" parent="HealthBar" index="1"]
+margin_left = 28.5732
+margin_top = 25.3984
+margin_right = 418.573
+margin_bottom = 80.3984
+rect_scale = Vector2( 1, 1 )
 
 [node name="PauseOverlay" type="ColorRect" parent="."]
 visible = false
@@ -69,3 +89,5 @@ next_scene_path = "res://src/Screens/MainScreen.tscn"
 margin_top = 254.0
 margin_right = 427.0
 margin_bottom = 378.0
+
+[editable path="HealthBar"]

@@ -1,38 +1,40 @@
 extends Actor
 
-onready var health_bar = $HealthBar
-
 export var stomp_impulse: = 1000.0
 
 var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
+#Connections---------------------------------------------------------
 func _on_EnemyDetector_area_entered(area):
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body):
-	#lives_left -= 1
-	#if lives_left > 0:
-	#	player.set_position(respawn_loc)
-	#else:
-	#	 queue_free()
-	#die()
 	if body.get_child(0).get_name() == "tank enemy":
-		damage(50)
+		PlayerData.health -= 50
 	elif body.get_child(0).get_name() == "speed enemy":
-		damage(5)
+		PlayerData.health -= 5
 	elif body.get_child(0).get_name() == "enemy":
-		damage(10)
+		PlayerData.health -= 10
 	elif body.get_child(0).get_name() == "jump enemy":
-		damage(10)
+		PlayerData.health -= 10
+	elif body.get_child(0).get_name() == "crazy enemy":
+		PlayerData.health -= 20
+		
+	if PlayerData.health <= 0:
+		die()
 
 func _on_JumperDetector_body_entered(body):
 	if body.get_child(0).get_name() == "jump enemy":
-		damage(50)
+		PlayerData.health -= 50
 	else:
-		damage(20)
+		PlayerData.health -= 20
+	
+	if PlayerData.health <= 0:
+		die()
+#--------------------------------------------------------------------
 
-
+#Physics-------------------------------------------------------------
 func _physics_process(delta):
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
@@ -65,13 +67,10 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 	var out: = linear_velocity
 	out.y = -impulse
 	return out
+#--------------------------------------------------------------------
 
+#--------------------------------------------------------------------
 func die() -> void:
 	PlayerData.deaths += 1
 	queue_free()
-
-func _on_Player_health_updated(health):
-	health_bar._on_health_updated(health, 0)
-
-func _on_Player_killed():
-	die()
+#--------------------------------------------------------------------

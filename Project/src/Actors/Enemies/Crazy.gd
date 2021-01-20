@@ -19,7 +19,7 @@ func _on_WallTimer_timeout():
 #--------------------------------------------------------------------
 
 #Physics-------------------------------------------------------------
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_on_wall():
 		walltimer.start()
 		engagecrazy = false

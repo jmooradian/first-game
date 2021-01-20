@@ -1,8 +1,10 @@
 extends Actor
 
+signal health_updated(health)
+
 export (float) var max_health = 100
 
-onready var health = max_health setget _set_health
+onready var _health = max_health setget _set_health
 onready var health_bar = $HealthBar
 
 #Ready---------------------------------------------------------------
@@ -35,16 +37,16 @@ func _physics_process(delta):
 
 #Enemy Damage--------------------------------------------------------
 func damage(amount):
-	_set_health(health-amount)
+	_set_health(_health-amount)
 
 func kill():
 	queue_free()
 
 func _set_health(value):
-	var prev_health = health
-	health = clamp(value, 0, max_health)
-	if health != prev_health:
-		emit_signal("health_updated", health)
-		if health == 0:
+	var prev_health = _health
+	_health = clamp(value, 0, max_health)
+	if _health != prev_health:
+		emit_signal("health_updated", _health)
+		if _health == 0:
 			kill()
 #--------------------------------------------------------------------

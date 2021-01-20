@@ -52,7 +52,6 @@ autostart = true
 [node name="WallTimer" type="Timer" parent="."]
 wait_time = 0.5
 [connection signal="health_updated" from="." to="." method="_on_Enemy_health_updated"]
-[connection signal="killed" from="." to="." method="_on_Enemy_killed"]
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]
 [connection signal="timeout" from="CrazyTimer" to="." method="_on_CrazyTimer_timeout"]
 [connection signal="timeout" from="WallTimer" to="." method="_on_WallTimer_timeout"]

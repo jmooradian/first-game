@@ -9,36 +9,30 @@ var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
 #Connections---------------------------------------------------------
-func _on_EnemyDetector_area_entered(area):
+func _on_EnemyDetector_area_entered(_area):
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body):
 	if body.get_child(0).get_name() == "tank enemy":
-		PlayerData.health -= 50
+		damage(50)
 	elif body.get_child(0).get_name() == "speed enemy":
-		PlayerData.health -= 5
+		damage(5)
 	elif body.get_child(0).get_name() == "enemy":
-		PlayerData.health -= 10
+		damage(10)
 	elif body.get_child(0).get_name() == "jump enemy":
-		PlayerData.health -= 10
+		damage(10)
 	elif body.get_child(0).get_name() == "crazy enemy":
-		PlayerData.health -= 20
-		
-	if PlayerData.health <= 0:
-		die()
+		damage(20)
 
 func _on_JumperDetector_body_entered(body):
 	if body.get_child(0).get_name() == "jump enemy":
-		PlayerData.health -= 50
+		damage(50)
 	else:
-		PlayerData.health -= 20
-	
-	if PlayerData.health <= 0:
-		die()
+		damage(20)
 #--------------------------------------------------------------------
 
 #Physics-------------------------------------------------------------
-func _physics_process(delta):
+func _physics_process(_delta):
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
 	if direction.x == 1.0:
@@ -83,6 +77,23 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 #--------------------------------------------------------------------
 
 #--------------------------------------------------------------------
+func damage(value: int):
+	var shield = PlayerData.shields
+	
+	if shield == 0:
+		PlayerData.health -= value
+	else:
+		if (shield - value) >= 0:
+			PlayerData.shields -= value
+		else:
+			var temp = value - shield
+			PlayerData.shields = 0
+			PlayerData.health -= temp
+	
+	
+	if PlayerData.health == 0:
+		die()
+
 func die() -> void:
 	PlayerData.deaths += 1
 	queue_free()

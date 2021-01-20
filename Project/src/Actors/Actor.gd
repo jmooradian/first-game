@@ -8,4 +8,4 @@ export var gravity: = 4000.0
 
 var _velocity: = Vector2.ZERO
 
-signal health_updated(health)
+

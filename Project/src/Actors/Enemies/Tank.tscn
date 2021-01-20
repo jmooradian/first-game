@@ -51,5 +51,4 @@ margin_top = -149.827
 margin_right = -58.9675
 margin_bottom = -149.827
 [connection signal="health_updated" from="." to="." method="_on_Tank_Enemy_health_updated"]
-[connection signal="killed" from="." to="." method="_on_Tank_Enemy_killed"]
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

@@ -5,7 +5,7 @@ export var next_scene: PackedScene
 
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	teleport()
 
 

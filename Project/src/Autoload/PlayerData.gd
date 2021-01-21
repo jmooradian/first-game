@@ -6,13 +6,15 @@ signal max_health_changed
 signal health_changed
 signal shields_changed
 signal max_shields_changed
+signal gave_shields
 
 var gold: = 0 setget set_gold
 var deaths: = 0 setget set_deaths
 var max_health: = 100 setget set_max_health
 var health: = 100 setget set_health
 var shields: = 0 setget set_shields
-var max_shields: = 100 setget set_max_shields
+var max_shields: = 25 setget set_max_shields
+var has_shields: = false setget set_give_shields
 
 func reset() -> void:
 	gold = 0
@@ -43,3 +45,7 @@ func set_shields(value: int) -> void:
 func set_max_shields(value: int) -> void:
 	max_shields = value
 	emit_signal("max_shields_changed")
+
+func set_give_shields(value: bool) -> void:
+	has_shields = value
+	emit_signal("gave_shields")

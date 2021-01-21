@@ -2,7 +2,7 @@ extends Area2D
 
 onready var anim_player: AnimationPlayer = get_node("AnimationPlayer")
 
-export var gold: = 100
+export var health: = 10
 var picked = false
 
 func _on_body_entered(_body):
@@ -10,6 +10,6 @@ func _on_body_entered(_body):
 		picked()
 
 func picked() -> void:
-	PlayerData.gold += gold
+	PlayerData.health += health
 	anim_player.play("fade_out")
 	picked = true

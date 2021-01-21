@@ -26,7 +26,7 @@ func _assign_color(health):
 #--------------------------------------------------------------------
 
 #Health Updates------------------------------------------------------
-func _on_max_health_upadated(max_health):
+func update_max_health(max_health):
 	health_over.max_value = max_health
 	health_under.max_value = max_health
 

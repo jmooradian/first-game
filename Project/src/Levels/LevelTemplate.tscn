@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://src/Actors/Enemies/Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Objects/Health_pu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background.png" type="Texture" id=4]
-[ext_resource path="res://src/Actors/Enemies/Speed.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/Actors/Enemies/Crazy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=7]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -44,13 +42,16 @@ position = Vector2( 239, 954 )
 [node name="Camera2D" parent="Player" index="2"]
 limit_right = 4880
 
-[node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 912.246, 925.106 )
+[node name="HealthPickUp" parent="." instance=ExtResource( 3 )]
+position = Vector2( 924.019, 899.789 )
 
-[node name="Speed Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1056.88, 925.106 )
+[node name="HealthPickUp2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1063.61, 889.698 )
 
-[node name="Crazy Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1295.69, 928.47 )
+[node name="HealthPickUp3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1233.47, 896.425 )
+
+[node name="HealthPickUp4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1389.87, 898.107 )
 
 [editable path="Player"]

@@ -98,4 +98,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 next_scene_path = "res://src/Levels/Level02.tscn"
+[connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

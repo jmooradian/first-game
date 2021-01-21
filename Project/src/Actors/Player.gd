@@ -80,7 +80,7 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 func damage(value: int):
 	var shield = PlayerData.shields
 	
-	if shield == 0:
+	if shield == 0 || PlayerData.has_shields == false:
 		PlayerData.health -= value
 	else:
 		if (shield - value) >= 0:

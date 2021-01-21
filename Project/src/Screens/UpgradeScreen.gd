@@ -5,3 +5,11 @@ onready var gold: Label = get_node("GoldLabel")
 func _ready() -> void:
 	gold.text = gold.text % [PlayerData.gold]
 
+func update() -> void:
+	gold.text = "Gold: %s" % PlayerData.gold
+
+
+func _on_UpgradeHealth_button_up():
+	PlayerData.gold -= 100
+	PlayerData.max_health += 25
+	update()

@@ -16,6 +16,7 @@ func _ready() -> void:
 	PlayerData.connect("health_changed", self, "update_health")
 	PlayerData.connect("shields_changed", self, "update_shields")
 	PlayerData.connect("max_shields_changed", self, "update_max_shields")
+	PlayerData.connect("gave_shields", self, "give_shields")
 	update_interface()
 
 func _on_PlayerData_player_died() -> void:
@@ -33,8 +34,15 @@ func update_interface() -> void:
 	gold.text = "Gold: %s" % PlayerData.gold
 	health_bar.get_child(0).value = PlayerData.health
 	health_bar.get_child(1).value = PlayerData.health
-	shield_bar.get_child(0).value = PlayerData.shields
-	shield_bar.get_child(1).value = PlayerData.shields
+	health_bar.get_child(0).max_value = PlayerData.max_health
+	health_bar.get_child(1).max_value = PlayerData.max_health
+	if PlayerData.has_shields == false:
+		shield_bar.visible = false
+	else:
+		shield_bar.get_child(0).value = PlayerData.shields
+		shield_bar.get_child(1).value = PlayerData.shields
+		shield_bar.get_child(0).max_value = PlayerData.max_shields
+		shield_bar.get_child(1).max_value = PlayerData.max_shields
 
 func set_paused(value: bool) -> void:
 	paused = value
@@ -49,7 +57,7 @@ func update_health() -> void:
 		health_bar.update_health(curr_health)
 
 func update_max_health() -> void:
-	pass
+	health_bar.update_max_health(PlayerData.max_health)
 
 func update_shields() -> void:
 	var prev_shields = shield_bar.get_child(0).value
@@ -59,4 +67,8 @@ func update_shields() -> void:
 		shield_bar.update_shields(curr_shields)
 
 func update_max_shields() -> void:
-	pass
+	shield_bar.update_max_shield(PlayerData.max_shields)
+
+func give_shields() -> void:
+	shield_bar.visible = true
+	PlayerData.shields = PlayerData.max_shields

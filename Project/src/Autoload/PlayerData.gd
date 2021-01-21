@@ -19,6 +19,8 @@ var shields: = 0 setget set_shields
 var max_shields: = 25 setget set_max_shields
 var has_shields: = false setget set_give_shields
 var healthUpgrades = [500, 1000, 2000, 4000]
+var speedUpgrades = [500, 1000, 2000, 4000]
+var jumpUpgrades = [500, 1000, 2000, 4000]
 var curLevel = ["res://src/Levels/Level02.tscn","res://src/Levels/LevelTemplate.tscn"]
 
 var damage: = 75

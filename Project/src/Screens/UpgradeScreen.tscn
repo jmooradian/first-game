@@ -109,8 +109,28 @@ text = "$ %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpeedLabel" type="Label" parent="."]
+margin_left = 938.523
+margin_top = 767.04
+margin_right = 996.523
+margin_bottom = 798.04
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpLabel" type="Label" parent="."]
+margin_left = 1334.79
+margin_top = 767.04
+margin_right = 1392.79
+margin_bottom = 798.04
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
-[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

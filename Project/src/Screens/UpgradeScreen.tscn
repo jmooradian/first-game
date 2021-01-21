@@ -9,6 +9,7 @@
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -24,20 +25,20 @@ __meta__ = {
 
 [node name="Title" parent="." instance=ExtResource( 4 )]
 margin_left = -558.5
-margin_top = 101.593
+margin_top = 45.9768
 margin_right = 558.5
-margin_bottom = 158.593
+margin_bottom = 102.977
 text = "Upgrade"
 
 [node name="GoldLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -54.0
-margin_top = 190.022
-margin_right = 54.0
-margin_bottom = 221.022
+margin_left = -88.0
+margin_top = 136.723
+margin_right = 88.0
+margin_bottom = 167.723
 theme = ExtResource( 2 )
-text = "Gold: %s"
+text = "Your Gold: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -48,9 +49,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -582.0
-margin_top = -274.0
+margin_top = -338.886
 margin_right = 584.0
-margin_bottom = 276.0
+margin_bottom = 211.114
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,5 +99,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 next_scene_path = "res://src/Levels/Level02.tscn"
+
+[node name="HealthLabel" type="Label" parent="."]
+margin_left = 530.671
+margin_top = 767.04
+margin_right = 570.671
+margin_bottom = 781.04
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

@@ -1,4 +1,4 @@
-extends "res://src/Actors/Enemies/Enemy.gd"
+extends "res://src/Actors/Enemies/Scripts/Enemy.gd"
 
 onready var crazytimer = $CrazyTimer
 onready var walltimer = $WallTimer

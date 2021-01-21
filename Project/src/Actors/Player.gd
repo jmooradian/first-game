@@ -8,27 +8,19 @@ onready var rarrow = $rightarrow
 var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
+func _ready():
+	speed.x = PlayerData.speed
+	speed.y = PlayerData.jump
+
 #Connections---------------------------------------------------------
 func _on_EnemyDetector_area_entered(_area):
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body):
-	if body.get_child(0).get_name() == "tank enemy":
-		damage(50)
-	elif body.get_child(0).get_name() == "speed enemy":
-		damage(5)
-	elif body.get_child(0).get_name() == "enemy":
-		damage(10)
-	elif body.get_child(0).get_name() == "jump enemy":
-		damage(10)
-	elif body.get_child(0).get_name() == "crazy enemy":
-		damage(20)
+	damage(body.dmg)
 
 func _on_JumperDetector_body_entered(body):
-	if body.get_child(0).get_name() == "jump enemy":
-		damage(50)
-	else:
-		damage(20)
+	damage(body.jump_dmg)
 #--------------------------------------------------------------------
 
 #Physics-------------------------------------------------------------

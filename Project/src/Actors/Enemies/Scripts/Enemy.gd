@@ -3,6 +3,8 @@ extends Actor
 signal health_updated(health)
 
 export (float) var max_health = 100
+export (float) var dmg
+export (float) var jump_dmg = 20
 
 onready var _health = max_health setget _set_health
 onready var health_bar = $HealthBar
@@ -19,7 +21,7 @@ func _on_StopDetector_body_entered(body):
 	if body.global_position.y > get_node("StopDetector").global_position.y:
 		return 
 	health_bar.visible = true
-	damage(75)
+	damage(PlayerData.damage)
 	#get_node("CollisionShape2D").disabled = true
 	#die()
 

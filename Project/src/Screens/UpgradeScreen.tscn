@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
 [ext_resource path="res://src/Screens/UpgradeScreen.gd" type="Script" id=3]
 [ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/UserInterface/PlayButton.gd" type="Script" id=5]
+[ext_resource path="res://src/UserInterface/Scripts/PlayButton.gd" type="Script" id=5]
 
 [node name="UpgradeScreen" type="Control"]
 anchor_right = 1.0
@@ -99,4 +99,5 @@ __meta__ = {
 }
 next_scene_path = "res://src/Levels/Level02.tscn"
 [connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
+[connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

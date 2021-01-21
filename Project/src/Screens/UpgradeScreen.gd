@@ -19,3 +19,9 @@ func _on_UpgradeSpeed_button_up():
 	PlayerData.gold -= 100
 	PlayerData.speed += 100
 	update()
+
+
+func _on_UpgradeJump_button_up():
+	PlayerData.gold -= 100
+	PlayerData.jump += 100
+	update()

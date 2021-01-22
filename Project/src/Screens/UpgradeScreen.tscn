@@ -25,9 +25,9 @@ __meta__ = {
 
 [node name="Title" parent="." instance=ExtResource( 4 )]
 margin_left = -558.5
-margin_top = 45.9768
+margin_top = 50.6114
 margin_right = 558.5
-margin_bottom = 102.977
+margin_bottom = 107.612
 text = "Upgrade"
 
 [node name="GoldLabel" type="Label" parent="."]

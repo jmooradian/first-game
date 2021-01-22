@@ -5,7 +5,6 @@
 [ext_resource path="res://assets/healthbar-over.png" type="Texture" id=3]
 [ext_resource path="res://src/UserInterface/Scripts/Shieldbar.gd" type="Script" id=4]
 
-
 [node name="ShieldBar" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,6 +35,18 @@ value = 100.0
 texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
 tint_progress = Color( 0, 0.576471, 1, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShieldLabel" type="Label" parent="ShieldOver"]
+anchor_left = 0.9
+anchor_right = 0.9
+anchor_bottom = 1.0
+margin_left = -16.0
+text = "25"
+align = 2
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

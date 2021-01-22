@@ -21,10 +21,16 @@ func update() -> void:
 
 
 func _on_UpgradeHealth_button_up():
+	var health: float = PlayerData.health
+	var max_health: float = PlayerData.max_health
+	var healthpercentage: float = health / max_health
+	print(healthpercentage)
 	if(PlayerData.gold >= PlayerData.healthUpgrades.front()):
 		PlayerData.gold -= PlayerData.healthUpgrades.front()
 		PlayerData.healthUpgrades.pop_front()
 		PlayerData.max_health += 25
+		print(healthpercentage * PlayerData.max_health)
+		PlayerData.health = healthpercentage * PlayerData.max_health
 	update()
 
 func _on_ChangeSceneButton_button_up():

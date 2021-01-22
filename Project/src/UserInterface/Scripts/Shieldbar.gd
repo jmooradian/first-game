@@ -8,6 +8,10 @@ onready var shield_under = $ShieldUnder
 onready var update_tween = $UpdateTween
 onready var g_shields = gain_shields
 onready var l_shields = lose_shields
+onready var label = $ShieldOver/ShieldLabel
+
+func _ready():
+	label.text = "%s" % PlayerData.shields
 
 func update_shields(value):
 	if shield_over.value > value:
@@ -20,6 +24,7 @@ func update_shields(value):
 		update_tween.interpolate_property(shield_over, "value", shield_over.value, value, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.4)
 	
 	update_tween.start()
+	label.text = "%s" % PlayerData.shields
 
 func update_max_shield(value):
 	shield_over.max_value = value

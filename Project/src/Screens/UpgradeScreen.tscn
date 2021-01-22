@@ -132,5 +132,5 @@ __meta__ = {
 [connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
-[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]

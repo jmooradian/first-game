@@ -14,6 +14,10 @@ export (float, 0, 1, 0.05) var danger_zone = 0.2
 
 onready var g_health = gain_health
 onready var l_health = lose_health
+onready var label = $HealthOver/HealthLabel
+
+func _ready():
+	label.text = "%s" % PlayerData.health
 
 #Change color depending on health------------------------------------
 func _assign_color(health):
@@ -41,6 +45,8 @@ func update_health(health):
 		update_tween.interpolate_property(health_over, "value", health_over.value, health, 0.4, Tween.TRANS_SINE, Tween.EASE_IN_OUT, 0.4)
 	
 	update_tween.start()
+	
+	label.text = "%s" % PlayerData.health
 	
 	_assign_color(health)
 #--------------------------------------------------------------------

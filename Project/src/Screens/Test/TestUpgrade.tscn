@@ -1,0 +1,268 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/background.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=2]
+[ext_resource path="res://src/Screens/Test/TestUpgrade.gd" type="Script" id=3]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/Scripts/PlayButton.gd" type="Script" id=5]
+
+[node name="UpgradeScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 4 )]
+margin_left = -558.5
+margin_top = 50.6114
+margin_right = 558.5
+margin_bottom = 107.612
+text = "Upgrade"
+
+[node name="GoldLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -88.0
+margin_top = 136.723
+margin_right = 88.0
+margin_bottom = 167.723
+theme = ExtResource( 2 )
+text = "Your Gold: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -713.853
+margin_top = -351.359
+margin_right = 728.147
+margin_bottom = 198.641
+
+[node name="Health Group" type="GridContainer" parent="HBoxContainer"]
+margin_right = 1442.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health1" type="Button" parent="HBoxContainer/Health Group"]
+margin_right = 357.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Health I"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Health Group/Health1"]
+margin_left = 147.765
+margin_top = 124.121
+margin_right = 205.765
+margin_bottom = 155.121
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health2" type="Button" parent="HBoxContainer/Health Group"]
+margin_left = 361.0
+margin_right = 718.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Health II"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Health Group/Health2"]
+visible = false
+margin_left = 138.771
+margin_top = 124.121
+margin_right = 196.771
+margin_bottom = 155.121
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health3" type="Button" parent="HBoxContainer/Health Group"]
+margin_left = 722.0
+margin_right = 1079.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Health III"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Health Group/Health3"]
+visible = false
+margin_left = 136.911
+margin_top = 124.121
+margin_right = 194.911
+margin_bottom = 155.121
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health4" type="Button" parent="HBoxContainer/Health Group"]
+margin_left = 1083.0
+margin_right = 1440.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Health IV"
+
+[node name="HealthLabel" type="Label" parent="HBoxContainer/Health Group/Health4"]
+visible = false
+margin_left = 137.43
+margin_top = 124.121
+margin_right = 195.43
+margin_bottom = 155.121
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer2" type="GridContainer" parent="HBoxContainer"]
+margin_top = 184.0
+margin_right = 1442.0
+margin_bottom = 364.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="UpgradeSpeed" type="Button" parent="HBoxContainer/GridContainer2"]
+margin_right = 357.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Speed I"
+
+[node name="Button4" type="Button" parent="HBoxContainer/GridContainer2"]
+margin_left = 361.0
+margin_right = 718.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Speed II"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="HBoxContainer/GridContainer2"]
+margin_left = 722.0
+margin_right = 1079.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Speed III"
+
+[node name="Button6" type="Button" parent="HBoxContainer/GridContainer2"]
+margin_left = 1083.0
+margin_right = 1440.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Speed IV"
+
+[node name="GridContainer3" type="GridContainer" parent="HBoxContainer"]
+margin_top = 368.0
+margin_right = 1442.0
+margin_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="UpgradeJump" type="Button" parent="HBoxContainer/GridContainer3"]
+margin_right = 357.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Jump I"
+
+[node name="Button7" type="Button" parent="HBoxContainer/GridContainer3"]
+margin_left = 361.0
+margin_right = 718.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Jump II"
+
+[node name="Button8" type="Button" parent="HBoxContainer/GridContainer3"]
+margin_left = 722.0
+margin_right = 1079.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Jump III"
+
+[node name="Button9" type="Button" parent="HBoxContainer/GridContainer3"]
+margin_left = 1083.0
+margin_right = 1440.0
+margin_bottom = 180.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Jump IV"
+
+[node name="ChangeSceneButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -273.0
+margin_top = -217.173
+margin_right = 273.0
+margin_bottom = -23.1735
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+text = "Continue"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_scene_path = "res://src/Levels/Level02.tscn"
+
+[node name="SpeedLabel" type="Label" parent="."]
+margin_left = 938.523
+margin_top = 767.04
+margin_right = 996.523
+margin_bottom = 798.04
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpLabel" type="Label" parent="."]
+margin_left = 1334.79
+margin_top = 767.04
+margin_right = 1392.79
+margin_bottom = 798.04
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="HBoxContainer/Health Group/Health1" to="." method="_on_UpgradeHealth_button_up"]
+[connection signal="button_up" from="HBoxContainer/GridContainer2/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
+[connection signal="button_up" from="HBoxContainer/GridContainer3/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]

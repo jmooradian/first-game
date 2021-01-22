@@ -27,6 +27,11 @@ var damage: = 75
 var speed: = 300 setget set_speed
 var jump: = 1400 setget set_jump
 
+#test vars
+var testhU = [Vector2(false,500), Vector2(true, 1000), Vector2(true, 2000), Vector2(true, 4000)]
+var testsU = [Vector2(false,500), Vector2(true, 1000), Vector2(true, 2000), Vector2(true, 4000)]
+var testjU = [Vector2(false,500), Vector2(true, 1000), Vector2(true, 2000), Vector2(true, 4000)]
+
 func reset() -> void:
 	gold = 0
 	deaths = 0

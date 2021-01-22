@@ -39,6 +39,8 @@ func _physics_process(_delta):
 		
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
+	
+	PlayerData.position = self.position
 
 
 func get_direction() -> Vector2:

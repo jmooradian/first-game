@@ -8,6 +8,8 @@ signal shields_changed
 signal max_shields_changed
 signal gave_shields
 
+var position: = Vector2.ZERO setget set_position
+
 var gold: = 0 setget set_gold
 
 var deaths: = 0 setget set_deaths
@@ -71,3 +73,6 @@ func set_speed(value: int) -> void:
 
 func set_jump(value: int) -> void:
 	jump = value
+
+func set_position(value: Vector2) -> void:
+	position = value

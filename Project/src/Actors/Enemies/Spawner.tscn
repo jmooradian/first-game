@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/Actors/Enemies/Scripts/Tank.gd" type="Script" id=1]
+[ext_resource path="res://src/Actors/Enemies/Scripts/Spawner.gd" type="Script" id=1]
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=3]
 
@@ -10,15 +10,14 @@ extents = Vector2( 44, 35 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 51, 11 )
 
-[node name="Tank Enemy" type="KinematicBody2D"]
+[node name="Spawn Enemy" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 2147483657
 script = ExtResource( 1 )
-speed = Vector2( 175, 1400 )
-max_health = 250.0
-dmg = 50.0
+max_health = 200.0
+dmg = 20.0
 
-[node name="tank enemy" type="Sprite" parent="."]
+[node name="spawn enemy" type="Sprite" parent="."]
 modulate = Color( 0, 0.952941, 1, 1 )
 position = Vector2( 0, -59 )
 scale = Vector2( 1.25, 1.25 )
@@ -51,5 +50,5 @@ margin_left = -58.9675
 margin_top = -149.827
 margin_right = -58.9675
 margin_bottom = -149.827
-[connection signal="health_updated" from="." to="." method="_on_Tank_Enemy_health_updated"]
+[connection signal="health_updated" from="." to="." method="_on_Spawn_Enemy_health_updated"]
 [connection signal="body_entered" from="StopDetector" to="." method="_on_StopDetector_body_entered"]

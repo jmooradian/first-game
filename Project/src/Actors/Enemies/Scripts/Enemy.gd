@@ -1,16 +1,21 @@
 extends Actor
 
 signal health_updated(health)
+signal spawned(loc)
 
 export (float) var max_health = 100
 export (float) var dmg
 export (float) var jump_dmg = 20
+export var num_children = 4
 
 onready var _health = max_health setget _set_health
 onready var health_bar = $HealthBar
 
 #Ready---------------------------------------------------------------
 func _ready():
+	health_bar.get_child(0).max_value = max_health
+	health_bar.get_child(1).max_value = max_health
+	health_bar.get_child(1).get_child(0).visible = false
 	health_bar.visible = false
 	set_physics_process(false)
 	_velocity.x = -speed.x
@@ -32,7 +37,7 @@ func _on_Enemy_health_updated(health):
 #Physics-------------------------------------------------------------
 func _physics_process(delta):
 	_velocity.y += gravity * delta
-	if is_on_wall():
+	if is_on_wall() && self.get_name() != "HeatSeeker":
 		_velocity.x *= -1.0
 	_velocity.y = move_and_slide(_velocity, FLOOR_NORMAL).y
 #--------------------------------------------------------------------
@@ -52,3 +57,7 @@ func _set_health(value):
 		if _health == 0:
 			kill()
 #--------------------------------------------------------------------
+
+
+func _on_Enemy_spawned(loc):
+	_velocity = loc

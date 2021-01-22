@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/enemy.png" type="Texture" id=2]
 [ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 44, 35 )
 

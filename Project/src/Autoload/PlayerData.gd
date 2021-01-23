@@ -31,6 +31,8 @@ var speed: = 300 setget set_speed
 var jump: = 1400 setget set_jump
 
 var bulletDamage: = 10 setget set_bulletDamage
+var numBullets : = 10 setget set_numBullets
+var maxBullets: = 10 setget set_maxBullets
 
 #test vars
 var testhU = [Vector2(false,500), Vector2(true, 1000), Vector2(true, 2000), Vector2(true, 4000)]
@@ -82,3 +84,9 @@ func set_position(value: Vector2) -> void:
 	
 func set_bulletDamage(value: int) -> void:
 	bulletDamage = value
+
+func set_numBullets(value: int) -> void:
+	numBullets = value
+	
+func set_maxBullets(value: int) -> void:
+	maxBullets = value

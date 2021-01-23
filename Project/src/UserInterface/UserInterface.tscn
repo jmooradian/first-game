@@ -9,7 +9,6 @@
 [ext_resource path="res://src/UserInterface/HealthBar.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UserInterface/Shieldbar.tscn" type="PackedScene" id=8]
 
-
 [node name="UserInterface" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -20,7 +19,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="GoldLabel" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -242.413
@@ -28,6 +27,16 @@ margin_top = 28.9141
 margin_right = -134.413
 margin_bottom = 59.9141
 text = "Gold: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BulletsLabel" type="Label" parent="."]
+margin_left = 1680.16
+margin_top = 80.5677
+margin_right = 1720.16
+margin_bottom = 111.568
+text = "Bullets: %s / %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }

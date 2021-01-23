@@ -2,7 +2,8 @@ extends Control
 
 onready var scene_tree: = get_tree()
 onready var pause_overlay: ColorRect = get_node("PauseOverlay")
-onready var gold: Label = get_node("Label")
+onready var gold: Label = get_node("GoldLabel")
+onready var bullets: Label = get_node("BulletsLabel")
 onready var pause_title: Label = get_node("PauseOverlay/Title")
 onready var health_bar = $HealthBar
 onready var shield_bar = $ShieldBar
@@ -29,6 +30,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		self.paused = not paused
 		scene_tree.set_input_as_handled()
+
+func _process(delta):
+	bullets.text = "Bullets: %s / %s" % [PlayerData.numBullets, PlayerData.maxBullets]
 
 func update_interface() -> void:
 	gold.text = "Gold: %s" % PlayerData.gold

@@ -57,7 +57,7 @@ __meta__ = {
 }
 
 [node name="UpgradeHealth" type="Button" parent="HBoxContainer"]
-margin_right = 386.0
+margin_right = 288.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -67,20 +67,27 @@ __meta__ = {
 }
 
 [node name="UpgradeSpeed" type="Button" parent="HBoxContainer"]
-margin_left = 390.0
-margin_right = 776.0
+margin_left = 292.0
+margin_right = 580.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Speed"
 
 [node name="UpgradeJump" type="Button" parent="HBoxContainer"]
-margin_left = 780.0
-margin_right = 1166.0
+margin_left = 584.0
+margin_right = 872.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Jump"
+
+[node name="UpgradeGun" type="Button" parent="HBoxContainer"]
+margin_left = 876.0
+margin_right = 1166.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+text = "Upgrade Gun"
 
 [node name="ChangeSceneButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -101,19 +108,19 @@ __meta__ = {
 next_scene_path = "res://src/Levels/Level02.tscn"
 
 [node name="HealthLabel" type="Label" parent="."]
-margin_left = 530.671
+margin_left = 491.276
 margin_top = 767.04
-margin_right = 570.671
-margin_bottom = 781.04
+margin_right = 549.276
+margin_bottom = 798.04
 text = "$ %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SpeedLabel" type="Label" parent="."]
-margin_left = 938.523
+margin_left = 785.579
 margin_top = 767.04
-margin_right = 996.523
+margin_right = 843.579
 margin_bottom = 798.04
 text = "$ %s"
 __meta__ = {
@@ -121,16 +128,24 @@ __meta__ = {
 }
 
 [node name="JumpLabel" type="Label" parent="."]
-margin_left = 1334.79
+margin_left = 1077.56
 margin_top = 767.04
-margin_right = 1392.79
+margin_right = 1135.56
 margin_bottom = 798.04
 text = "$ %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GunLabel" type="Label" parent="."]
+margin_left = 1374.18
+margin_top = 767.04
+margin_right = 1414.18
+margin_bottom = 798.04
+text = "$ %s"
 [connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
-[connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="HBoxContainer/UpgradeGun" to="." method="_on_UpgradeGun_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

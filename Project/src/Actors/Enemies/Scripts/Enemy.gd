@@ -25,12 +25,11 @@ func _ready():
 func _on_StopDetector_body_entered(body):
 	if body.global_position.y > get_node("StopDetector").global_position.y:
 		return 
-	health_bar.visible = true
 	damage(PlayerData.damage)
 	#get_node("CollisionShape2D").disabled = true
 	#die()
 
-func _on_Enemy_health_updated(health):
+func _on_health_updated(health):
 	health_bar.update_health(health)
 #--------------------------------------------------------------------
 
@@ -44,6 +43,7 @@ func _physics_process(delta):
 
 #Enemy Damage--------------------------------------------------------
 func damage(amount):
+	health_bar.visible = true
 	_set_health(_health-amount)
 
 func kill():

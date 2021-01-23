@@ -68,6 +68,12 @@ visible = false
 position = Vector2( 24.1021, -49.0831 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
+
+[node name="bulletPos" type="Position2D" parent="."]
+position = Vector2( 45.1882, -45.1882 )
+
+[node name="bulletPosL" type="Position2D" parent="."]
+position = Vector2( -41.1039, -45.1882 )
 [connection signal="area_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_area_entered"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_EnemyDetector_body_entered"]
 [connection signal="area_entered" from="JumperDetector" to="." method="_on_EnemyDetector_area_entered"]

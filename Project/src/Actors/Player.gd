@@ -4,6 +4,7 @@ export var stomp_impulse: = 1000.0
 
 onready var larrow = $leftarrow
 onready var rarrow = $rightarrow
+var BULLET_SCENE = preload("res://src/Objects/Bullet.tscn")
 
 var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
@@ -25,6 +26,7 @@ func _on_JumperDetector_body_entered(body):
 
 #Physics-------------------------------------------------------------
 func _physics_process(_delta):
+	
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
 	if direction.x == 1.0:
@@ -33,9 +35,20 @@ func _physics_process(_delta):
 	elif direction.x == -1.0:
 		rarrow.visible = false
 		larrow.visible = true
-	else:
-		rarrow.visible = false
-		larrow.visible = false
+	if Input.is_action_just_released("shoot"):
+		var bullet = BULLET_SCENE.instance()
+		get_parent().add_child(bullet)
+		if direction.x == 1.0:
+			bullet.set_position(get_node("bulletPos").get_global_position())
+		elif direction.x == -1.0:
+			bullet.set_position(get_node("bulletPosL").get_global_position())
+			bullet.speedDir = -bullet.speedDir
+		else:
+			if larrow.visible == true:
+				bullet.set_position(get_node("bulletPosL").get_global_position())
+				bullet.speedDir = -bullet.speedDir
+			else:
+				bullet.set_position(get_node("bulletPos").get_global_position())
 		
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)

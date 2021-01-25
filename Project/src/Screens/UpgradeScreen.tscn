@@ -68,22 +68,22 @@ __meta__ = {
 
 [node name="UpgradeSpeed" type="Button" parent="HBoxContainer"]
 margin_left = 292.0
-margin_right = 580.0
+margin_right = 581.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Speed"
 
 [node name="UpgradeJump" type="Button" parent="HBoxContainer"]
-margin_left = 584.0
-margin_right = 872.0
+margin_left = 585.0
+margin_right = 873.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Jump"
 
 [node name="UpgradeGun" type="Button" parent="HBoxContainer"]
-margin_left = 876.0
+margin_left = 877.0
 margin_right = 1166.0
 margin_bottom = 550.0
 size_flags_horizontal = 3
@@ -147,5 +147,5 @@ text = "$ %s"
 [connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
 [connection signal="button_up" from="HBoxContainer/UpgradeGun" to="." method="_on_UpgradeGun_button_up"]
-[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]

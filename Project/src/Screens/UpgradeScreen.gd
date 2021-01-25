@@ -5,6 +5,7 @@ onready var healthUpgrade: Label = get_node("HealthLabel")
 onready var speedUpgrade: Label = get_node("SpeedLabel")
 onready var jumpUpgrade: Label = get_node("JumpLabel")
 onready var gunUpgrade: Label = get_node("GunLabel")
+onready var shieldUpgrade: Label = get_node("ShieldLabel")
 onready var changeSceneButton: Button = get_node("ChangeSceneButton")
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 	speedUpgrade.text = "$ %s" % PlayerData.speedUpgrades.front()
 	jumpUpgrade.text = "$ %s" % PlayerData.jumpUpgrades.front()
 	gunUpgrade.text = "$ %s" % PlayerData.gunUpgrades.front()
+	shieldUpgrade.text = "$ %s" % PlayerData.shieldUpgrades.front()
 
 func update() -> void:
 	gold.text = "Your Gold: %s" % PlayerData.gold
@@ -21,6 +23,7 @@ func update() -> void:
 	speedUpgrade.text = "$ %s" % PlayerData.speedUpgrades.front()
 	jumpUpgrade.text = "$ %s" % PlayerData.jumpUpgrades.front()
 	gunUpgrade.text = "$ %s" % PlayerData.gunUpgrades.front()
+	shieldUpgrade.text = "$ %s" % PlayerData.shieldUpgrades.front()
 
 
 func _on_UpgradeHealth_button_up():
@@ -62,4 +65,15 @@ func _on_UpgradeGun_button_up():
 		PlayerData.gold -= PlayerData.gunUpgrades.front()
 		PlayerData.gunUpgrades.pop_front()
 		PlayerData.bulletDamage += 10
+	update()
+
+
+func _on_UpgradeShields_button_up():
+	if(PlayerData.gold >= PlayerData.shieldUpgrades.front()):
+		PlayerData.gold -= PlayerData.shieldUpgrades.front()
+		if PlayerData.shieldUpgrades.front() == 500:
+			PlayerData.has_shields = true
+		else:
+			PlayerData.shields += 25
+		PlayerData.shieldUpgrades.pop_front()
 	update()

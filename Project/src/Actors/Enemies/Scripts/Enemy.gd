@@ -60,4 +60,5 @@ func _set_health(value):
 
 
 func _on_Enemy_spawned(loc):
+	print(loc)
 	_velocity = loc

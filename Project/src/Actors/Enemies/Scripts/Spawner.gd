@@ -6,9 +6,9 @@ func kill():
 	for i in range(0,num_children):
 		var spawn = children.instance()
 		rand.randomize()
-		var x = rand.randf_range(0, 1)
+		var x = rand.randi_range(0, 1)
 		rand.randomize()
-		var y = rand.randf_range(0, 1)
+		var y = rand.randi_range(0, 1)
 		if x == 0:
 			x = -1
 		if y == 1:
@@ -16,7 +16,7 @@ func kill():
 		spawn.position = self.position
 		
 		get_parent().add_child(spawn)
-		emit_signal("spawned", Vector2(x * speed.x, y * speed.y))
+		emit_signal("spawned", Vector2(x * speed.x, 1 * speed.y))
 
 	queue_free()
 

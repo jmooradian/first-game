@@ -73,3 +73,24 @@ func _on_UpgradeShields_button_up():
 			PlayerData.shields += 25
 		PlayerData.shieldUpgrades.pop_front()
 	update()
+
+
+func _on_RefillHealth_button_up():
+	if(PlayerData.gold >= 500 and PlayerData.health != PlayerData.max_health):
+		PlayerData.gold -= 500
+		PlayerData.health = PlayerData.max_health
+		update()
+
+
+func _on_RefillBullets_button_up():
+	if(PlayerData.gold >= 500 and PlayerData.numBullets != PlayerData.maxBullets):
+		PlayerData.gold -= 500
+		PlayerData.numBullets = PlayerData.maxBullets
+		update()
+
+
+func _on_RefillShild_button_up():
+	if(PlayerData.gold >= 500 and PlayerData.shields != PlayerData.max_shields):
+		PlayerData.gold -= 500
+		PlayerData.shields = PlayerData.max_shields
+		update()

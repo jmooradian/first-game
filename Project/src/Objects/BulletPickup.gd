@@ -11,6 +11,5 @@ func _on_body_entered(_body):
 func picked() -> void:
 	if(PlayerData.numBullets < PlayerData.maxBullets):
 		PlayerData.numBullets += 1
-		#anim_player.play("fade_out")
+		anim_player.play("fade_out")
 		pickedUp = true
-		queue_free()

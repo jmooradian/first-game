@@ -36,15 +36,15 @@ func _process(delta):
 
 func update_interface() -> void:
 	gold.text = "Gold: %s" % PlayerData.gold
-	health_bar.get_child(0).value = PlayerData.health
-	health_bar.get_child(1).value = PlayerData.health
 	health_bar.get_child(0).max_value = PlayerData.max_health
 	health_bar.get_child(1).max_value = PlayerData.max_health
-
-	shield_bar.get_child(0).value = PlayerData.shields
-	shield_bar.get_child(1).value = PlayerData.shields
+	health_bar.get_child(0).value = PlayerData.health
+	health_bar.get_child(1).value = PlayerData.health
+	
 	shield_bar.get_child(0).max_value = PlayerData.max_shields
 	shield_bar.get_child(1).max_value = PlayerData.max_shields
+	shield_bar.get_child(0).value = PlayerData.shields
+	shield_bar.get_child(1).value = PlayerData.shields
 	
 	if PlayerData.has_shields == false:
 		shield_bar.visible = false

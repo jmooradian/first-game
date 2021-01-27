@@ -10,12 +10,7 @@ onready var changeSceneButton: Button = get_node("ChangeSceneButton")
 
 func _ready() -> void:
 	changeSceneButton.next_scene_path = PlayerData.curLevel.front()
-	gold.text = gold.text % [PlayerData.gold]
-	healthUpgrade.text = "$ %s" % PlayerData.healthUpgrades.front()
-	speedUpgrade.text = "$ %s" % PlayerData.speedUpgrades.front()
-	jumpUpgrade.text = "$ %s" % PlayerData.jumpUpgrades.front()
-	gunUpgrade.text = "$ %s" % PlayerData.gunUpgrades.front()
-	shieldUpgrade.text = "$ %s" % PlayerData.shieldUpgrades.front()
+	update()
 
 func update() -> void:
 	gold.text = "Your Gold: %s" % PlayerData.gold
@@ -73,6 +68,7 @@ func _on_UpgradeShields_button_up():
 		PlayerData.gold -= PlayerData.shieldUpgrades.front()
 		if PlayerData.shieldUpgrades.front() == 500:
 			PlayerData.has_shields = true
+			PlayerData.shields = PlayerData.max_shields
 		else:
 			PlayerData.shields += 25
 		PlayerData.shieldUpgrades.pop_front()

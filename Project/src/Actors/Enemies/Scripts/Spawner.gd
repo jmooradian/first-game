@@ -15,7 +15,8 @@ func kill():
 		spawn.position = self.position
 		spawn._velocity = Vector2(x * speed.x, y * speed.y)
 		
-		get_parent().add_child(spawn)
+		#get_parent().add_child(spawn)
+		get_parent().call_deferred("add_child", spawn)
 
 	queue_free()
 

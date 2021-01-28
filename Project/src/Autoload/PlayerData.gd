@@ -59,12 +59,12 @@ func set_max_health(value: int) -> void:
 	emit_signal("max_health_changed")
 
 func set_health(value: int) -> void:
-	value = clamp(value, 0, max_health)
+	value = int(clamp(value, 0, max_health))
 	health = value
 	emit_signal("health_changed")
 
 func set_shields(value: int) -> void:
-	value = clamp(value, 0, max_shields)
+	value = int(clamp(value, 0, max_shields))
 	shields = value
 	emit_signal("shields_changed")
 

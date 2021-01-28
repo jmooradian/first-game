@@ -11,13 +11,13 @@ onready var shield_bar = $ShieldBar
 var paused: = false setget set_paused
 
 func _ready() -> void:
-	PlayerData.connect("gold_updated", self, "update_interface")
-	PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
-	PlayerData.connect("max_health_changed", self, "update_max_health")
-	PlayerData.connect("health_changed", self, "update_health")
-	PlayerData.connect("shields_changed", self, "update_shields")
-	PlayerData.connect("max_shields_changed", self, "update_max_shields")
-	PlayerData.connect("gave_shields", self, "give_shields")
+	#PlayerData.connect("gold_updated", self, "update_interface")
+	#PlayerData.connect("player_died", self, "_on_PlayerData_player_died")
+	#PlayerData.connect("max_health_changed", self, "update_max_health")
+	#PlayerData.connect("health_changed", self, "update_health")
+	#PlayerData.connect("shields_changed", self, "update_shields")
+	#PlayerData.connect("max_shields_changed", self, "update_max_shields")
+	#PlayerData.connect("gave_shields", self, "give_shields")
 	update_interface()
 
 func _on_PlayerData_player_died() -> void:
@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		self.paused = not paused
 		scene_tree.set_input_as_handled()
 
-func _process(delta):
+func _process(_delta):
 	bullets.text = "Bullets: %s / %s" % [PlayerData.numBullets, PlayerData.maxBullets]
 
 func update_interface() -> void:

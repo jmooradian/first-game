@@ -12,7 +12,6 @@ onready var health_bar = $HealthBar
 
 #Ready---------------------------------------------------------------
 func _ready():
-	print(_velocity)
 	health_bar.get_child(0).max_value = max_health
 	health_bar.get_child(1).max_value = max_health
 	health_bar.get_child(1).get_child(0).visible = false

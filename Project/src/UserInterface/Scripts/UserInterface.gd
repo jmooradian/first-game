@@ -7,6 +7,7 @@ onready var bullets: Label = get_node("BulletsLabel")
 onready var pause_title: Label = get_node("PauseOverlay/Title")
 onready var health_bar = $HealthBar
 onready var shield_bar = $ShieldBar
+onready var gunimg = $GunImg
 
 var paused: = false setget set_paused
 
@@ -39,7 +40,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		scene_tree.set_input_as_handled()
 
 func _process(_delta):
-	bullets.text = "Bullets: %s / %s" % [PlayerData.numBullets, PlayerData.maxBullets]
+	if PlayerData.curGun == "":
+		bullets.visible = false
+		gunimg.texture = null
+	else:
+		bullets.visible = true
+		bullets.text = "Bullets: %s / %s" % [GunManager.guns.get(PlayerData.curGun).numbullets, GunManager.guns.get(PlayerData.curGun).max_numbullets]
+		gunimg.texture = load(GunManager.guns.get(PlayerData.curGun).img)
 
 func update_interface() -> void:
 	gold.text = "Gold: %s" % PlayerData.gold

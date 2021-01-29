@@ -12,7 +12,6 @@ var lives_left: = 3
 func _ready():
 	speed.x = PlayerData.speed
 	speed.y = PlayerData.jump
-	GunManager.printer()
 
 #Connections---------------------------------------------------------
 func _on_EnemyDetector_area_entered(_area):
@@ -25,9 +24,30 @@ func _on_JumperDetector_body_entered(body):
 	damage(body.jump_dmg)
 #--------------------------------------------------------------------
 
+func _process(delta):
+	var nogun = Input.is_action_just_released("equip fists")
+	var pistol = Input.is_action_just_released("equip pistol")
+	var shotgun = Input.is_action_just_released("equp shotgun")
+	var rifle = Input.is_action_just_released("equip rifle")
+	var rocketlauncher = Input.is_action_just_released("equip rocketlauncher")
+	
+	if nogun:
+		PlayerData.curGun = ""
+	elif pistol:
+		if GunManager.pistol.hasgun:
+			PlayerData.curGun = "pistol"
+	elif shotgun:
+		if GunManager.shotgun.hasgun:
+			PlayerData.curGun = "shotgun"
+	elif rifle:
+		if GunManager.rifle.hasgun:
+			PlayerData.curGun = "rifle"
+	elif rocketlauncher:
+		if GunManager.rocketlauncher.hasgun:
+			PlayerData.curGun = "rocketlauncher"
+
 #Physics-------------------------------------------------------------
 func _physics_process(_delta):
-	
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
 	if direction.x == 1.0:
@@ -36,8 +56,8 @@ func _physics_process(_delta):
 	elif direction.x == -1.0:
 		rarrow.visible = false
 		larrow.visible = true
-	if Input.is_action_just_released("shoot") and PlayerData.numBullets > 0:
-		PlayerData.numBullets -= 1
+	if Input.is_action_just_released("shoot") and GunManager.guns.get(PlayerData.curGun).numbullets > 0:
+		GunManager.guns.get(PlayerData.curGun).numbullets -= 1
 		var bullet = BULLET_SCENE.instance()
 		get_parent().add_child(bullet)
 		if direction.x == 1.0:

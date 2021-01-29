@@ -19,5 +19,5 @@ func _on_Bullet_body_entered(body):
 	if body.get_name() == "TileMap":
 		queue_free()
 	elif body.get_name() != "Player":
-		body.damage(GunManager.damage("pistol"))
+		body.damage(GunManager.damage(PlayerData.curGun))
 		queue_free()

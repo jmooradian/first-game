@@ -24,6 +24,8 @@ var has_shields: = false setget set_give_shields
 #Leave for now, but move to GameManager when we have enough to justify a new script
 var curLevel = ["res://src/Levels/Level02.tscn","res://src/Levels/LevelTemplate.tscn"]
 
+var curGun = "" setget set_gun
+
 var damage: = 75
 var speed: = 300 setget set_speed
 var jump: = 1400 setget set_jump
@@ -75,6 +77,8 @@ func set_jump(value: int) -> void:
 func set_position(value: Vector2) -> void:
 	position = value
 
+func set_gun(value: String) -> void:
+	curGun = value
 
 #Move to GunManager
 

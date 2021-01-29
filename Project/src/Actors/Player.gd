@@ -12,6 +12,7 @@ var lives_left: = 3
 func _ready():
 	speed.x = PlayerData.speed
 	speed.y = PlayerData.jump
+	GunManager.printer()
 
 #Connections---------------------------------------------------------
 func _on_EnemyDetector_area_entered(_area):

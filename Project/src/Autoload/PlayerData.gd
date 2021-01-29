@@ -21,13 +21,6 @@ var shields: = 0 setget set_shields
 var max_shields: = 25 setget set_max_shields
 var has_shields: = false setget set_give_shields
 
-#Move to Upgrades
-var healthUpgrades = [500, 1000, 2000, 4000]
-var speedUpgrades = [500, 1000, 2000, 4000]
-var jumpUpgrades = [500, 1000, 2000, 4000]
-var gunUpgrades = [500, 1000, 2000, 4000]
-var shieldUpgrades = [500, 1000, 2000, 4000]
-
 #Leave for now, but move to GameManager when we have enough to justify a new script
 var curLevel = ["res://src/Levels/Level02.tscn","res://src/Levels/LevelTemplate.tscn"]
 
@@ -36,7 +29,6 @@ var speed: = 300 setget set_speed
 var jump: = 1400 setget set_jump
 
 #Move to GunManager
-var bulletDamage: = 10 setget set_bulletDamage
 var numBullets : = 10 setget set_numBullets
 var maxBullets: = 10 setget set_maxBullets
 
@@ -85,8 +77,6 @@ func set_position(value: Vector2) -> void:
 
 
 #Move to GunManager
-func set_bulletDamage(value: int) -> void:
-	bulletDamage = value
 
 func set_numBullets(value: int) -> void:
 	numBullets = value

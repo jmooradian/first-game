@@ -40,4 +40,10 @@ var guns = {
 func printer():
 	print(pistol.damage)
 	print(guns.get("pistol").damage)
-	
+
+
+func damage(gun: String) -> float:
+	return guns.get(gun).damage
+
+func upgrade_damage(gun: String, new_damage: float):
+	guns.get(gun).damage += new_damage

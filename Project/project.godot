@@ -27,6 +27,8 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerData="*res://src/Autoload/PlayerData.tscn"
+GunManager="*res://src/Autoload/GunManager.tscn"
+UpgradeManager="*res://src/Autoload/UpgradeManager.tscn"
 
 [display]
 

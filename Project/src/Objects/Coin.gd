@@ -10,6 +10,6 @@ func _on_body_entered(_body):
 		picked()
 
 func picked() -> void:
-	PlayerData.gold += gold
+	PlayerData.set_gold(PlayerData.get_gold() + gold)
 	anim_player.play("fade_out")
 	pickedUp = true

@@ -9,7 +9,8 @@ func _on_body_entered(_body):
 		picked()
 
 func picked() -> void:
-	if(PlayerData.numBullets < PlayerData.maxBullets):
-		PlayerData.numBullets += 1
-		anim_player.play("fade_out")
-		pickedUp = true
+	if(PlayerData.get_gun() != ""):
+		if(GunManager.guns.get(PlayerData.get_gun()).numbullets < GunManager.guns.get(PlayerData.get_gun()).max_numbullets):
+			GunManager.guns.get(PlayerData.get_gun()).numbullets += 1
+			anim_player.play("fade_out")
+			pickedUp = true

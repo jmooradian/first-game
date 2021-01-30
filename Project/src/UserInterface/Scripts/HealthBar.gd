@@ -17,7 +17,7 @@ onready var l_health = lose_health
 onready var label = $HealthOver/HealthLabel
 
 func _ready():
-	label.text = "%s" % PlayerData.health
+	label.text = "%s" % PlayerData.get_health()
 
 #Change color depending on health------------------------------------
 func _assign_color(health):
@@ -46,7 +46,7 @@ func update_health(health):
 	
 	update_tween.start()
 	
-	label.text = "%s" % PlayerData.health
+	label.text = "%s" % PlayerData.get_health()
 	
 	_assign_color(health)
 #--------------------------------------------------------------------

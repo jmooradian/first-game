@@ -40,27 +40,27 @@ func _unhandled_input(event: InputEvent) -> void:
 		scene_tree.set_input_as_handled()
 
 func _process(_delta):
-	if PlayerData.curGun == "":
+	if PlayerData.get_gun() == "":
 		bullets.visible = false
 		gunimg.texture = null
 	else:
 		bullets.visible = true
-		bullets.text = "Bullets: %s / %s" % [GunManager.guns.get(PlayerData.curGun).numbullets, GunManager.guns.get(PlayerData.curGun).max_numbullets]
-		gunimg.texture = load(GunManager.guns.get(PlayerData.curGun).img)
+		bullets.text = "Bullets: %s / %s" % [GunManager.guns.get(PlayerData.get_gun()).numbullets, GunManager.guns.get(PlayerData.get_gun()).max_numbullets]
+		gunimg.texture = load(GunManager.guns.get(PlayerData.get_gun()).img)
 
 func update_interface() -> void:
-	gold.text = "Gold: %s" % PlayerData.gold
-	health_bar.get_child(0).max_value = PlayerData.max_health
-	health_bar.get_child(1).max_value = PlayerData.max_health
-	health_bar.get_child(0).value = PlayerData.health
-	health_bar.get_child(1).value = PlayerData.health
+	gold.text = "Gold: %s" % PlayerData.get_gold()
+	health_bar.get_child(0).max_value = PlayerData.get_max_health()
+	health_bar.get_child(1).max_value = PlayerData.get_max_health()
+	health_bar.get_child(0).value = PlayerData.get_health()
+	health_bar.get_child(1).value = PlayerData.get_health()
 	
-	shield_bar.get_child(0).max_value = PlayerData.max_shields
-	shield_bar.get_child(1).max_value = PlayerData.max_shields
-	shield_bar.get_child(0).value = PlayerData.shields
-	shield_bar.get_child(1).value = PlayerData.shields
+	shield_bar.get_child(0).max_value = PlayerData.get_max_shields()
+	shield_bar.get_child(1).max_value = PlayerData.get_max_shields()
+	shield_bar.get_child(0).value = PlayerData.get_shields()
+	shield_bar.get_child(1).value = PlayerData.get_shields()
 	
-	if PlayerData.has_shields == false:
+	if PlayerData.get_has_shields() == false:
 		shield_bar.visible = false
 
 func set_paused(value: bool) -> void:
@@ -70,24 +70,24 @@ func set_paused(value: bool) -> void:
 
 func update_health() -> void:
 	var prev_health = health_bar.get_child(0).value
-	var curr_health = PlayerData.health
-	curr_health = clamp(curr_health, 0, PlayerData.max_health)
+	var curr_health = PlayerData.get_health()
+	curr_health = clamp(curr_health, 0, PlayerData.get_max_health())
 	if curr_health != prev_health:
 		health_bar.update_health(curr_health)
 
 func update_max_health() -> void:
-	health_bar.update_max_health(PlayerData.max_health)
+	health_bar.update_max_health(PlayerData.get_max_health())
 
 func update_shields() -> void:
 	var prev_shields = shield_bar.get_child(0).value
-	var curr_shields = PlayerData.shields
-	curr_shields = clamp(curr_shields, 0, PlayerData.max_shields)
+	var curr_shields = PlayerData.get_shields()
+	curr_shields = clamp(curr_shields, 0, PlayerData.get_max_shields())
 	if curr_shields != prev_shields:
 		shield_bar.update_shields(curr_shields)
 
 func update_max_shields() -> void:
-	shield_bar.update_max_shield(PlayerData.max_shields)
+	shield_bar.update_max_shield(PlayerData.get_max_shields())
 
 func give_shields() -> void:
 	shield_bar.visible = true
-	PlayerData.shields = PlayerData.max_shields
+	PlayerData.set_shields(PlayerData.get_max_shields())

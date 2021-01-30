@@ -10,8 +10,8 @@ var respawn_loc: = Vector2(240, -100)
 var lives_left: = 3
 
 func _ready():
-	speed.x = PlayerData.speed
-	speed.y = PlayerData.jump
+	speed.x = PlayerData.get_speed()
+	speed.y = PlayerData.get_jump()
 
 #Connections---------------------------------------------------------
 func _on_EnemyDetector_area_entered(_area):
@@ -32,19 +32,19 @@ func _process(delta):
 	var rocketlauncher = Input.is_action_just_released("equip rocketlauncher")
 	
 	if nogun:
-		PlayerData.curGun = ""
+		PlayerData.set_gun("")
 	elif pistol:
 		if GunManager.pistol.hasgun:
-			PlayerData.curGun = "pistol"
+			PlayerData.set_gun("pistol")
 	elif shotgun:
 		if GunManager.shotgun.hasgun:
-			PlayerData.curGun = "shotgun"
+			PlayerData.set_gun("shotgun")
 	elif rifle:
 		if GunManager.rifle.hasgun:
-			PlayerData.curGun = "rifle"
+			PlayerData.set_gun("rifle")
 	elif rocketlauncher:
 		if GunManager.rocketlauncher.hasgun:
-			PlayerData.curGun = "rocketlauncher"
+			PlayerData.set_gun("rocketlauncher")
 
 #Physics-------------------------------------------------------------
 func _physics_process(_delta):
@@ -75,7 +75,7 @@ func _physics_process(_delta):
 	_velocity = calculate_move_velocity(_velocity, direction, speed, is_jump_interupted)
 	_velocity = move_and_slide(_velocity, FLOOR_NORMAL)
 	
-	PlayerData.position = self.position
+	PlayerData.set_position(self.position)
 
 
 func get_direction() -> Vector2:
@@ -107,23 +107,23 @@ func calculate_stomp_velocity(linear_velocity: Vector2, impulse: float) -> Vecto
 
 #--------------------------------------------------------------------
 func damage(value: int):
-	var shield = PlayerData.shields
+	var shield = PlayerData.player.shields
 	
-	if shield == 0 || PlayerData.has_shields == false:
-		PlayerData.health -= value
+	if shield == 0 || PlayerData.player.has_shields == false:
+		PlayerData.set_health(PlayerData.get_health() - value)
 	else:
 		if (shield - value) >= 0:
-			PlayerData.shields -= value
+			PlayerData.set_health(PlayerData.get_health() - value)
 		else:
 			var temp = value - shield
-			PlayerData.shields = 0
-			PlayerData.health -= temp
+			PlayerData.set_shields(0)
+			PlayerData.set_health(PlayerData.get_health() - temp)
 	
 	
-	if PlayerData.health == 0:
+	if PlayerData.get_health() == 0:
 		die()
 
 func die() -> void:
-	PlayerData.deaths += 1
+	PlayerData.set_deaths(PlayerData.get_deaths() + 1)
 	queue_free()
 #--------------------------------------------------------------------

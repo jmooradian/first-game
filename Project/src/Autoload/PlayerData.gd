@@ -8,82 +8,113 @@ signal shields_changed
 signal max_shields_changed
 signal gave_shields
 
-var position: = Vector2.ZERO setget set_position
-
-var gold: = 0 setget set_gold
-
-var deaths: = 0 setget set_deaths
-
-var max_health: = 100 setget set_max_health
-var health: = 100 setget set_health
-
-var shields: = 0 setget set_shields
-var max_shields: = 25 setget set_max_shields
-var has_shields: = false setget set_give_shields
+var player = {
+	#Health
+	health = 100,
+	max_health = 100,
+	shields = 25,
+	max_shields = 25,
+	has_shields = false,
+	deaths = 0,
+	
+	#Player Abilities
+	jump = 1400,
+	speed = 300,
+	damage = 75,
+	
+	gold = 0,
+	
+	position = Vector2.ZERO,
+	
+	curGun = ""
+}
 
 #Leave for now, but move to GameManager when we have enough to justify a new script
 var curLevel = ["res://src/Levels/Level02.tscn","res://src/Levels/LevelTemplate.tscn"]
 
-var curGun = "" setget set_gun
-
-var damage: = 75
-var speed: = 300 setget set_speed
-var jump: = 1400 setget set_jump
-
-#Move to GunManager
-var numBullets : = 10 setget set_numBullets
-var maxBullets: = 10 setget set_maxBullets
-
 func reset() -> void:
-	gold = 0
-	deaths = 0
+	player.gold = 0
+	player.deaths = 0
 
+#Getters-------------------------------------------------------------
+func get_gold() -> int:
+	return player.gold
+
+func get_deaths() -> int:
+	return player.deaths
+
+func get_max_health() -> float:
+	return player.max_health
+
+func get_health() -> float:
+	return player.health
+
+func get_max_shields() -> float:
+	return player.max_shields
+
+func get_shields() -> float:
+	return player.shields
+
+func get_has_shields() -> bool:
+	return player.has_shields
+
+func get_speed() -> float:
+	return player.speed
+
+func get_jump() -> float:
+	return player.jump
+
+func get_position() -> Vector2:
+	return player.position
+
+func get_gun() -> String:
+	return player.curGun
+
+func get_damage() -> float:
+	return player.damage
+
+#Setters-------------------------------------------------------------
 func set_gold(value: int) -> void:
-	gold = value
+	player.gold = value
 	emit_signal("gold_updated")
 
 func set_deaths(value: int) -> void:
-	deaths = value
+	player.deaths = value
 	emit_signal("player_died")
 
-func set_max_health(value: int) -> void:
-	max_health = value
+func set_max_health(value: float) -> void:
+	player.max_health = value
 	emit_signal("max_health_changed")
 
-func set_health(value: int) -> void:
-	value = int(clamp(value, 0, max_health))
-	health = value
+func set_health(value: float) -> void:
+	value = float(clamp(value, 0, player.max_health))
+	player.health = value
 	emit_signal("health_changed")
 
-func set_shields(value: int) -> void:
-	value = int(clamp(value, 0, max_shields))
-	shields = value
-	emit_signal("shields_changed")
-
-func set_max_shields(value: int) -> void:
-	max_shields = value
+func set_max_shields(value: float) -> void:
+	player.max_shields = value
 	emit_signal("max_shields_changed")
 
-func set_give_shields(value: bool) -> void:
-	has_shields = value
+func set_shields(value: float) -> void:
+	value = float(clamp(value, 0, player.max_shields))
+	player.shields = value
+	emit_signal("shields_changed")
+
+func set_has_shields(value: bool) -> void:
+	player.has_shields = value
 	emit_signal("gave_shields")
 
-func set_speed(value: int) -> void:
-	speed = value
+func set_speed(value: float) -> void:
+	player.speed = value
 
-func set_jump(value: int) -> void:
-	jump = value
+func set_jump(value: float) -> void:
+	player.jump = value
 
 func set_position(value: Vector2) -> void:
-	position = value
+	player.position = value
 
 func set_gun(value: String) -> void:
-	curGun = value
+	player.curGun = value
 
-#Move to GunManager
-
-func set_numBullets(value: int) -> void:
-	numBullets = value
-	
-func set_maxBullets(value: int) -> void:
-	maxBullets = value
+func set_damage(value: float) -> void:
+	player.damage = value

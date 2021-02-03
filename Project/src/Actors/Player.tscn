@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/player.png" type="Texture" id=1]
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=2]
 [ext_resource path="res://assets/leftarrow.png" type="Texture" id=3]
 [ext_resource path="res://assets/rightarrow.png" type="Texture" id=4]
+[ext_resource path="res://assets/pixil-layer-Layer 2.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 44 )
@@ -15,7 +16,12 @@ extents = Vector2( 43, 19.9505 )
 collision_mask = 2147483656
 script = ExtResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -52.6794 )
+texture = ExtResource( 5 )
+
 [node name="player" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -48 )
 texture = ExtResource( 1 )
 

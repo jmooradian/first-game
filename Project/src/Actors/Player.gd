@@ -4,6 +4,7 @@ export var stomp_impulse: = 1000.0
 
 onready var larrow = $leftarrow
 onready var rarrow = $rightarrow
+onready var p_sprite = $Sprite
 var BULLET_SCENE = preload("res://src/Objects/Bullet.tscn")
 
 var respawn_loc: = Vector2(240, -100)
@@ -51,11 +52,9 @@ func _physics_process(_delta):
 	var is_jump_interupted: = Input.is_action_just_released("jump") and _velocity.y < 0.0
 	var direction: = get_direction()
 	if direction.x == 1.0:
-		rarrow.visible = true
-		larrow.visible = false
+		p_sprite.flip_h = false
 	elif direction.x == -1.0:
-		rarrow.visible = false
-		larrow.visible = true
+		p_sprite.flip_h = true
 	if Input.is_action_just_released("shoot") and PlayerData.get_gun() != "" and GunManager.guns.get(PlayerData.get_gun()).numbullets > 0:
 		GunManager.guns.get(PlayerData.get_gun()).numbullets -= 1
 		var bullet = BULLET_SCENE.instance()

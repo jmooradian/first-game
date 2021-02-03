@@ -56,7 +56,7 @@ func _physics_process(_delta):
 	elif direction.x == -1.0:
 		rarrow.visible = false
 		larrow.visible = true
-	if Input.is_action_just_released("shoot") and GunManager.guns.get(PlayerData.get_gun()).numbullets > 0:
+	if Input.is_action_just_released("shoot") and PlayerData.get_gun() != "" and GunManager.guns.get(PlayerData.get_gun()).numbullets > 0:
 		GunManager.guns.get(PlayerData.get_gun()).numbullets -= 1
 		var bullet = BULLET_SCENE.instance()
 		get_parent().add_child(bullet)

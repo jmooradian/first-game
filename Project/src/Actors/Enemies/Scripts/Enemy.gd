@@ -25,7 +25,7 @@ func _ready():
 func _on_StopDetector_body_entered(body):
 	if body.global_position.y > get_node("StopDetector").global_position.y:
 		return 
-	damage(PlayerData.damage)
+	damage(PlayerData.get_damage())
 	#get_node("CollisionShape2D").disabled = true
 	#die()
 

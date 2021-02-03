@@ -28,35 +28,58 @@ margin_left = -558.5
 margin_top = 50.6114
 margin_right = 558.5
 margin_bottom = 107.612
-text = "Upgrade"
+text = "Shop"
 
 [node name="GoldLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -88.0
-margin_top = 136.723
+margin_top = 116.723
 margin_right = 88.0
-margin_bottom = 167.723
+margin_bottom = 147.723
 theme = ExtResource( 2 )
 text = "Your Gold: %s"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -583.0
-margin_top = 198.452
-margin_right = 583.0
-margin_bottom = 395.452
+margin_left = -787.0
+margin_top = 164.0
+margin_right = 787.0
+margin_bottom = 828.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UpgradeHealth" type="Button" parent="HBoxContainer"]
-margin_right = 230.0
-margin_bottom = 197.0
+[node name="Player Abilities" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 49.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Player Abilities"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -583.0
+margin_top = -270.285
+margin_right = 583.0
+margin_bottom = -73.2851
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeHealth" type="Button" parent="TabContainer/Player Abilities/HBoxContainer"]
+margin_right = 483.0
+margin_bottom = 196.0
+hint_tooltip = "Increase Max Health by 25"
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Health"
@@ -64,51 +87,229 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="UpgradeSpeed" type="Button" parent="HBoxContainer"]
-margin_left = 234.0
-margin_right = 464.0
-margin_bottom = 197.0
+[node name="HealthLabel" type="Label" parent="TabContainer/Player Abilities/HBoxContainer/UpgradeHealth"]
+margin_left = 208.669
+margin_top = 208.727
+margin_right = 266.669
+margin_bottom = 239.727
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeShields" type="Button" parent="TabContainer/Player Abilities/HBoxContainer"]
+margin_left = 683.0
+margin_right = 1166.0
+margin_bottom = 196.0
+hint_tooltip = "Upgrade Max Shield by 25"
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy Shield"
+
+[node name="ShieldLabel" type="Label" parent="TabContainer/Player Abilities/HBoxContainer/UpgradeShields"]
+margin_left = 212.238
+margin_top = 204.797
+margin_right = 270.238
+margin_bottom = 269.797
+text = "$ %s
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Player Abilities"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -583.0
+margin_top = 12.8772
+margin_right = 583.0
+margin_bottom = 209.877
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSpeed" type="Button" parent="TabContainer/Player Abilities/HBoxContainer2"]
+margin_right = 483.0
+margin_bottom = 196.0
+hint_tooltip = "Increase Speed by 100"
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Speed"
 
-[node name="UpgradeJump" type="Button" parent="HBoxContainer"]
-margin_left = 468.0
-margin_right = 698.0
-margin_bottom = 197.0
+[node name="SpeedLabel" type="Label" parent="TabContainer/Player Abilities/HBoxContainer2/UpgradeSpeed"]
+margin_left = 198.759
+margin_top = 206.579
+margin_right = 256.759
+margin_bottom = 237.579
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeJump" type="Button" parent="TabContainer/Player Abilities/HBoxContainer2"]
+margin_left = 683.0
+margin_right = 1166.0
+margin_bottom = 196.0
+hint_tooltip = "Upgrade Jump by 100 "
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "Upgrade Jump"
 
-[node name="UpgradeGun" type="Button" parent="HBoxContainer"]
-margin_left = 702.0
-margin_right = 932.0
-margin_bottom = 197.0
-size_flags_horizontal = 3
-text = "Upgrade Gun"
+[node name="JumpLabel" type="Label" parent="TabContainer/Player Abilities/HBoxContainer2/UpgradeJump"]
+margin_left = 199.928
+margin_top = 210.142
+margin_right = 257.928
+margin_bottom = 241.142
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="UpgradeShields" type="Button" parent="HBoxContainer"]
-margin_left = 936.0
-margin_right = 1166.0
-margin_bottom = 197.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Upgrade Shield"
+[node name="Gun Upgrades" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 49.0
+margin_right = -4.0
+margin_bottom = -4.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Gun Upgrades"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -497.0
+margin_top = -261.154
+margin_right = 497.0
+margin_bottom = -64.1536
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradePistol" type="Button" parent="TabContainer/Gun Upgrades/HBoxContainer"]
+margin_right = 397.0
+margin_bottom = 197.0
+hint_tooltip = "Upgrade Pistol Damage by 10"
+size_flags_horizontal = 3
+text = "Upgrade Pistol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PistolLabel" type="Label" parent="TabContainer/Gun Upgrades/HBoxContainer/UpgradePistol"]
+margin_left = 168.298
+margin_top = 214.328
+margin_right = 226.298
+margin_bottom = 245.328
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeShotgun" type="Button" parent="TabContainer/Gun Upgrades/HBoxContainer"]
+margin_left = 597.0
+margin_right = 994.0
+margin_bottom = 197.0
+hint_tooltip = "Upgrade Shotgun Damage by 10"
+size_flags_horizontal = 3
+text = "Upgrade Shotgun"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShotgunLabel" type="Label" parent="TabContainer/Gun Upgrades/HBoxContainer/UpgradeShotgun"]
+margin_left = 168.298
+margin_top = 214.328
+margin_right = 226.298
+margin_bottom = 245.328
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Gun Upgrades"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -497.0
+margin_top = 13.8233
+margin_right = 497.0
+margin_bottom = 210.823
+custom_constants/separation = 200
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeRifle" type="Button" parent="TabContainer/Gun Upgrades/HBoxContainer2"]
+margin_right = 397.0
+margin_bottom = 196.0
+hint_tooltip = "Upgrade Rifle Damage by 10"
+size_flags_horizontal = 3
+text = "Upgrade Rifle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RifleLabel" type="Label" parent="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRifle"]
+margin_left = 168.298
+margin_top = 214.328
+margin_right = 226.298
+margin_bottom = 245.328
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeRocketLauncher" type="Button" parent="TabContainer/Gun Upgrades/HBoxContainer2"]
+margin_left = 597.0
+margin_right = 994.0
+margin_bottom = 196.0
+hint_tooltip = "Upgrade Rocket Launcher Damage by 10"
+size_flags_horizontal = 3
+text = "Upgrade Rocket"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RocketLauncherLabel" type="Label" parent="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRocketLauncher"]
+margin_left = 168.298
+margin_top = 214.328
+margin_right = 226.298
+margin_bottom = 245.328
+text = "$ %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Refills" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 49.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Refills"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -308.0
-margin_top = -20.0
+margin_top = -103.0
 margin_right = 308.0
-margin_bottom = 186.0
+margin_bottom = 103.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RefillHealth" type="Button" parent="HBoxContainer2"]
+[node name="RefillHealth" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
 margin_right = 202.0
 margin_bottom = 206.0
 size_flags_horizontal = 3
@@ -118,20 +319,50 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RefillBullets" type="Button" parent="HBoxContainer2"]
+[node name="RefillHealthLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillHealth"]
+margin_left = 69.323
+margin_top = 321.268
+margin_right = 139.323
+margin_bottom = 352.268
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillBullets" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
 margin_left = 206.0
 margin_right = 409.0
 margin_bottom = 206.0
 size_flags_horizontal = 3
 text = "Refill Bullets"
 
-[node name="RefillShild" type="Button" parent="HBoxContainer2"]
+[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillBullets"]
+margin_left = 73.547
+margin_top = 322.95
+margin_right = 143.547
+margin_bottom = 353.95
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillShield" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
 margin_left = 413.0
 margin_right = 616.0
 margin_bottom = 206.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Refill Shield"
+
+[node name="RefillShieldLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillShield"]
+margin_left = 68.0601
+margin_top = 324.631
+margin_right = 138.06
+margin_bottom = 355.631
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ChangeSceneButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -150,91 +381,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 next_scene_path = "res://src/Levels/Level02.tscn"
-
-[node name="HealthLabel" type="Label" parent="."]
-margin_left = 455.6
-margin_top = 417.227
-margin_right = 513.6
-margin_bottom = 448.227
-text = "$ %s"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeedLabel" type="Label" parent="."]
-margin_left = 687.0
-margin_top = 417.227
-margin_right = 745.0
-margin_bottom = 448.227
-text = "$ %s"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="JumpLabel" type="Label" parent="."]
-margin_left = 924.152
-margin_top = 417.227
-margin_right = 982.152
-margin_bottom = 448.227
-text = "$ %s"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GunLabel" type="Label" parent="."]
-margin_left = 1163.18
-margin_top = 417.227
-margin_right = 1221.18
-margin_bottom = 448.227
-text = "$ %s"
-
-[node name="ShieldLabel" type="Label" parent="."]
-margin_left = 1404.86
-margin_top = 417.227
-margin_right = 1462.86
-margin_bottom = 482.227
-text = "$ %s
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RefillHealthLabel" type="Label" parent="."]
-margin_left = 721.323
-margin_top = 736.768
-margin_right = 779.323
-margin_bottom = 767.768
-text = "$ 500"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RefillBulletsLabel" type="Label" parent="."]
-margin_left = 931.547
-margin_top = 738.45
-margin_right = 989.547
-margin_bottom = 769.45
-text = "$ 500"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RefillShieldLabel" type="Label" parent="."]
-margin_left = 1133.06
-margin_top = 740.131
-margin_right = 1203.06
-margin_bottom = 771.131
-text = "$ 500"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="button_up" from="HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
-[connection signal="button_up" from="HBoxContainer/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
-[connection signal="button_up" from="HBoxContainer/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
-[connection signal="button_up" from="HBoxContainer/UpgradeGun" to="." method="_on_UpgradeGun_button_up"]
-[connection signal="button_up" from="HBoxContainer/UpgradeShields" to="." method="_on_UpgradeShields_button_up"]
-[connection signal="button_up" from="HBoxContainer2/RefillHealth" to="." method="_on_RefillHealth_button_up"]
-[connection signal="button_up" from="HBoxContainer2/RefillBullets" to="." method="_on_RefillBullets_button_up"]
-[connection signal="button_up" from="HBoxContainer2/RefillShild" to="." method="_on_RefillShild_button_up"]
+[connection signal="button_up" from="TabContainer/Player Abilities/HBoxContainer/UpgradeHealth" to="." method="_on_UpgradeHealth_button_up"]
+[connection signal="button_up" from="TabContainer/Player Abilities/HBoxContainer/UpgradeShields" to="." method="_on_UpgradeShields_button_up"]
+[connection signal="button_up" from="TabContainer/Player Abilities/HBoxContainer2/UpgradeSpeed" to="." method="_on_UpgradeSpeed_button_up"]
+[connection signal="button_up" from="TabContainer/Player Abilities/HBoxContainer2/UpgradeJump" to="." method="_on_UpgradeJump_button_up"]
+[connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer/UpgradePistol" to="." method="_on_UpgradePistol_button_up"]
+[connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer/UpgradeShotgun" to="." method="_on_UpgradeShotgun_button_up"]
+[connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRifle" to="." method="_on_UpgradeRifle_button_up"]
+[connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRocketLauncher" to="." method="_on_UpgradeRocketLauncher_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillHealth" to="." method="_on_RefillHealth_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillBullets" to="." method="_on_RefillBullets_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillShield" to="." method="_on_RefillShild_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]

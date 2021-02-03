@@ -28,6 +28,19 @@ var gun = {
 	price = [500, 1000, 2000, 4000]
 }
 
+var pistol = {
+	price = [500, 1000, 2000, 4000]
+}
+var shotgun = {
+	price = [500, 1000, 2000, 4000]
+}
+var rifle = {
+	price = [500, 1000, 2000, 4000]
+}
+var rocketlauncher = {
+	price = [500, 1000, 2000, 4000]
+}
+
 var shield = {
 	price = [500, 1000, 2000, 4000]
 }
@@ -44,6 +57,10 @@ var upgrades = {
 	"speed": speed,
 	"jump": jump,
 	"gun": gun,
+	"pistol": pistol,
+	"shotgun": shotgun,
+	"rifle": rifle,
+	"rocketlauncher": rocketlauncher,
 	"shield": shield,
 	"heavyfeet": heavyfeet
 }

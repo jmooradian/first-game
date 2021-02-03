@@ -11,7 +11,7 @@ onready var l_shields = lose_shields
 onready var label = $ShieldOver/ShieldLabel
 
 func _ready():
-	label.text = "%s" % PlayerData.shields
+	label.text = "%s" % PlayerData.get_shields()
 
 func update_shields(value):
 	if shield_over.value > value:

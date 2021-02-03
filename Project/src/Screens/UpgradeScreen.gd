@@ -16,8 +16,6 @@ onready var RocketLauncherLabel: Label = get_node("TabContainer/Gun Upgrades/HBo
 onready var changeSceneButton: Button = get_node("ChangeSceneButton")
 
 func _ready() -> void:
-	#if(UpgradeManager.shield.price.front() != 500):
-		#shieldBtn.text = "Upgrade Shield"
 	changeSceneButton.next_scene_path = PlayerData.curLevel.front()
 	update()
 
@@ -110,14 +108,6 @@ func _on_RefillHealth_button_up():
 		PlayerData.set_health(PlayerData.get_max_health())
 	update()
 
-
-func _on_RefillBullets_button_up():
-	if(PlayerData.get_gold() >= 500 and PlayerData.numBullets != PlayerData.maxBullets):
-		PlayerData.set_gold(PlayerData.get_gold() - 500)
-		PlayerData.numBullets = PlayerData.maxBullets
-	update()
-
-
 func _on_RefillShield_button_up():
 	if(PlayerData.get_gold() >= 500 and PlayerData.get_shields() != PlayerData.get_max_shields()):
 		PlayerData.set_gold(PlayerData.get_gold() - 500)
@@ -127,3 +117,30 @@ func _on_RefillShield_button_up():
 func _on_ChangeSceneButton_button_up():
 	PlayerData.curLevel.pop_front()
 
+
+func _on_RefillPistolAmmo_button_up():
+	if(PlayerData.get_gold() >= 500 and GunManager.guns.get("pistol").numbullets != GunManager.guns.get("pistol").max_numbullets):
+		PlayerData.set_gold(PlayerData.get_gold() - 500)
+		GunManager.guns.get("pistol").numbullets = GunManager.guns.get("pistol").max_numbullets
+	update()
+
+
+func _on_RefillShotgunAmmo_button_up():
+	if(PlayerData.get_gold() >= 500 and GunManager.guns.get("shotgun").numbullets != GunManager.guns.get("shotgun").max_numbullets):
+		PlayerData.set_gold(PlayerData.get_gold() - 500)
+		GunManager.guns.get("shotgun").numbullets = GunManager.guns.get("shotgun").max_numbullets
+	update()
+
+
+func _on_RefillRifleAmmo_button_up():
+	if(PlayerData.get_gold() >= 500 and GunManager.guns.get("rifle").numbullets != GunManager.guns.get("rifle").max_numbullets):
+		PlayerData.set_gold(PlayerData.get_gold() - 500)
+		GunManager.guns.get("rifle").numbullets = GunManager.guns.get("rifle").max_numbullets
+	update()
+
+
+func _on_RefillRocketAmmo_button_up():
+	if(PlayerData.get_gold() >= 500 and GunManager.guns.get("rocketlauncher").numbullets != GunManager.guns.get("rocketlauncher").max_numbullets):
+		PlayerData.set_gold(PlayerData.get_gold() - 500)
+		GunManager.guns.get("rocketlauncher").numbullets = GunManager.guns.get("rocketlauncher").max_numbullets
+	update()

@@ -55,6 +55,7 @@ __meta__ = {
 }
 
 [node name="Player Abilities" type="Tabs" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -288,7 +289,6 @@ __meta__ = {
 }
 
 [node name="Refills" type="Tabs" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -296,21 +296,22 @@ margin_top = 49.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Refills"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Refills"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -308.0
-margin_top = -103.0
-margin_right = 308.0
-margin_bottom = 103.0
+margin_left = -457.0
+margin_top = -271.369
+margin_right = 457.0
+margin_bottom = -65.3693
+custom_constants/separation = 200
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RefillHealth" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
-margin_right = 202.0
+[node name="RefillHealth" type="Button" parent="TabContainer/Refills/HBoxContainer"]
+margin_right = 357.0
 margin_bottom = 206.0
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -319,46 +320,110 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RefillHealthLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillHealth"]
-margin_left = 69.323
-margin_top = 321.268
-margin_right = 139.323
-margin_bottom = 352.268
+[node name="RefillHealthLabel" type="Label" parent="TabContainer/Refills/HBoxContainer/RefillHealth"]
+margin_left = 132.181
+margin_top = 226.981
+margin_right = 202.181
+margin_bottom = 257.981
 text = "$ 500"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RefillBullets" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
-margin_left = 206.0
-margin_right = 409.0
-margin_bottom = 206.0
-size_flags_horizontal = 3
-text = "Refill Bullets"
-
-[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillBullets"]
-margin_left = 73.547
-margin_top = 322.95
-margin_right = 143.547
-margin_bottom = 353.95
-text = "$ 500"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RefillShield" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
-margin_left = 413.0
-margin_right = 616.0
+[node name="RefillShield" type="Button" parent="TabContainer/Refills/HBoxContainer"]
+margin_left = 557.0
+margin_right = 914.0
 margin_bottom = 206.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Refill Shield"
 
-[node name="RefillShieldLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillShield"]
-margin_left = 68.0601
-margin_top = 324.631
-margin_right = 138.06
-margin_bottom = 355.631
+[node name="RefillShieldLabel" type="Label" parent="TabContainer/Refills/HBoxContainer/RefillShield"]
+margin_left = 130.918
+margin_top = 230.344
+margin_right = 200.918
+margin_bottom = 261.344
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Refills"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -690.5
+margin_top = 40.6853
+margin_right = 690.5
+margin_bottom = 237.685
+custom_constants/separation = 100
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillPistolAmmo" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
+margin_right = 262.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+text = "Refill Pistol Ammo"
+
+[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillPistolAmmo"]
+margin_left = 84.7716
+margin_top = 212.949
+margin_right = 154.772
+margin_bottom = 243.949
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillShotgunAmmo" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
+margin_left = 362.0
+margin_right = 651.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+text = "Refill Shotgun Ammo"
+
+[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillShotgunAmmo"]
+margin_left = 84.7716
+margin_top = 212.949
+margin_right = 154.772
+margin_bottom = 243.949
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillRifleAmmo" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
+margin_left = 751.0
+margin_right = 1013.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+text = "Refill Rifle Ammo"
+
+[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillRifleAmmo"]
+margin_left = 84.7716
+margin_top = 212.949
+margin_right = 154.772
+margin_bottom = 243.949
+text = "$ 500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RefillRocketAmmo" type="Button" parent="TabContainer/Refills/HBoxContainer2"]
+margin_left = 1113.0
+margin_right = 1381.0
+margin_bottom = 197.0
+size_flags_horizontal = 3
+text = "Refill Rocket Ammo"
+
+[node name="RefillBulletsLabel" type="Label" parent="TabContainer/Refills/HBoxContainer2/RefillRocketAmmo"]
+margin_left = 84.7716
+margin_top = 212.949
+margin_right = 154.772
+margin_bottom = 243.949
 text = "$ 500"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -389,8 +454,11 @@ next_scene_path = "res://src/Levels/Level02.tscn"
 [connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer/UpgradeShotgun" to="." method="_on_UpgradeShotgun_button_up"]
 [connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRifle" to="." method="_on_UpgradeRifle_button_up"]
 [connection signal="button_up" from="TabContainer/Gun Upgrades/HBoxContainer2/UpgradeRocketLauncher" to="." method="_on_UpgradeRocketLauncher_button_up"]
-[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillHealth" to="." method="_on_RefillHealth_button_up"]
-[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillBullets" to="." method="_on_RefillBullets_button_up"]
-[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillShield" to="." method="_on_RefillShild_button_up"]
-[connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer/RefillHealth" to="." method="_on_RefillHealth_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer/RefillShield" to="." method="_on_RefillShield_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillPistolAmmo" to="." method="_on_RefillPistolAmmo_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillShotgunAmmo" to="." method="_on_RefillShotgunAmmo_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillRifleAmmo" to="." method="_on_RefillRifleAmmo_button_up"]
+[connection signal="button_up" from="TabContainer/Refills/HBoxContainer2/RefillRocketAmmo" to="." method="_on_RefillRocketAmmo_button_up"]
 [connection signal="button_up" from="ChangeSceneButton" to="." method="_on_ChangeSceneButton_button_up"]
+[connection signal="button_up" from="ChangeSceneButton" to="ChangeSceneButton" method="_on_button_up"]

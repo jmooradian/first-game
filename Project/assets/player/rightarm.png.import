@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-layer-RightLeg.png-e51549a435961a962707e8a48315ec11.stex"
+path="res://.import/rightarm.png-72a69adee90c0696617a146d45dc3667.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixil-layer-RightLeg.png"
-dest_files=[ "res://.import/pixil-layer-RightLeg.png-e51549a435961a962707e8a48315ec11.stex" ]
+source_file="res://assets/player/rightarm.png"
+dest_files=[ "res://.import/rightarm.png-72a69adee90c0696617a146d45dc3667.stex" ]
 
 [params]
 

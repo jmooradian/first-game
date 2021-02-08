@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-layer-Layer 2.png-ba5d8987fe1599c17518d743b3941bd3.stex"
+path="res://.import/leftleg.png-11e888c9ca0a43f1b0e034df81356263.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixil-layer-Layer 2.png"
-dest_files=[ "res://.import/pixil-layer-Layer 2.png-ba5d8987fe1599c17518d743b3941bd3.stex" ]
+source_file="res://assets/player/leftleg.png"
+dest_files=[ "res://.import/leftleg.png-11e888c9ca0a43f1b0e034df81356263.stex" ]
 
 [params]
 

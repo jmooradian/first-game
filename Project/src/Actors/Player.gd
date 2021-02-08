@@ -16,7 +16,8 @@ func _ready():
 	speed.y = PlayerData.get_jump()
 
 #Connections---------------------------------------------------------
-func _on_EnemyDetector_area_entered(_area):
+
+func _on_LaunchDetector_area_entered(area):
 	_velocity = calculate_stomp_velocity(_velocity, stomp_impulse)
 
 func _on_EnemyDetector_body_entered(body):
@@ -137,3 +138,5 @@ func flip(value: bool):
 	p_sprite.get_node("rightleg").flip_h = value
 	p_sprite.get_node("rightarm").flip_h = value
 #--------------------------------------------------------------------
+
+

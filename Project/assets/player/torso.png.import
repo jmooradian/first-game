@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-layer-RightArm.png-b567cc8ba6c6cdb086e9fe0e212a9e2d.stex"
+path="res://.import/torso.png-119aa27c661211238cd89bb53997ebc6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixil-layer-RightArm.png"
-dest_files=[ "res://.import/pixil-layer-RightArm.png-b567cc8ba6c6cdb086e9fe0e212a9e2d.stex" ]
+source_file="res://assets/player/torso.png"
+dest_files=[ "res://.import/torso.png-119aa27c661211238cd89bb53997ebc6.stex" ]
 
 [params]
 

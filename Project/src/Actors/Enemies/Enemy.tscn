@@ -26,6 +26,7 @@ position = Vector2( 0, -35 )
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
 position = Vector2( 1, 1 )
 rect = Rect2( -50, -60, 100, 60 )
 process_parent = true

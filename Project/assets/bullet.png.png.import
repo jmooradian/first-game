@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-layer-LeftLeg.png-088d4c0ea0195797c728efb6d327590e.stex"
+path="res://.import/bullet.png.png-89e8ad940b531bd93f3651d4d5ac7708.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pixil-layer-LeftLeg.png"
-dest_files=[ "res://.import/pixil-layer-LeftLeg.png-088d4c0ea0195797c728efb6d327590e.stex" ]
+source_file="res://assets/bullet.png.png"
+dest_files=[ "res://.import/bullet.png.png-89e8ad940b531bd93f3651d4d5ac7708.stex" ]
 
 [params]
 
